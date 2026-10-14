@@ -1,0 +1,2576 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thời khóa biểu Cún Con 🐶</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;600&display=swap">
+<style>
+@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--mx:50%;--my:30%}
+:root,:root[data-theme="night"]{--sky:linear-gradient(180deg,#14122e 0%,#272055 45%,#4b2d6e 80%,#7a3f7e 100%);--bg:#14122e;--bg2:#231f48;--card:#ffffff14;--ink:#f4efff;--mut:#b9b0dc;--line:#ffffff22;--neon:#8be9c8;--cy:#8ecbff;--pk:#ff9ec7;--on:#10231c;--spot:#ffffff0f;--moon:#fff6d6;--moonglow:#fff6d655;--o1:#7c5cff;--o2:#ff7eb6;--o3:#4fd1c5;--st:1;--co:.07;--cloud:#cfc2ff}
+:root[data-theme="sunset"]{--sky:linear-gradient(180deg,#2a1840 0%,#6a2c5c 40%,#e0647a 75%,#ffb58a 100%);--bg:#2a1840;--bg2:#4a2250;--card:#ffffff1a;--ink:#fff4ee;--mut:#f3d0d4;--line:#ffffff30;--neon:#ffd59a;--cy:#ffb3c6;--pk:#ff8fb1;--on:#3a1a10;--spot:#ffffff12;--moon:#ffe3a3;--moonglow:#ffcf7a77;--o1:#ff8fb1;--o2:#ffd59a;--o3:#b57bff;--st:.5;--co:.16;--cloud:#ffd6e0}
+:root[data-theme="forest"]{--sky:linear-gradient(180deg,#0b2420 0%,#14423a 50%,#2c6a50 100%);--bg:#0b2420;--bg2:#17382f;--card:#ffffff14;--ink:#eefbf1;--mut:#a9cdb9;--line:#ffffff24;--neon:#b8f28f;--cy:#8fe3d4;--pk:#ffd28f;--on:#0f2a14;--spot:#ffffff0f;--moon:#e9ffd0;--moonglow:#b8f28f44;--o1:#4fd1a0;--o2:#b8f28f;--o3:#3aa6c9;--st:.7;--co:.05;--cloud:#d5f5e3}
+:root[data-theme="day"]{--sky:linear-gradient(180deg,#8ecbff 0%,#cfeaff 50%,#fff1d8 100%);--bg:#cfeaff;--bg2:#ffffff;--card:#ffffffb8;--ink:#1d2b4a;--mut:#51628a;--line:#1d2b4a22;--neon:#3f7dff;--cy:#1a93a8;--pk:#e8457a;--on:#ffffff;--spot:#ffffff66;--moon:#fff3b0;--moonglow:#ffe27a99;--o1:#ffd27a;--o2:#ff9ec7;--o3:#7ab8ff;--st:0;--co:.9;--cloud:#ffffff}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;font-family:'Be Vietnam Pro',system-ui,sans-serif;color:var(--ink);background:radial-gradient(520px circle at var(--mx) var(--my),var(--spot),transparent 60%),var(--sky);background-attachment:fixed;overflow-x:hidden}
+h1,h2,h3,.f{font-family:'Baloo 2','Be Vietnam Pro',system-ui,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:18px 18px 70px;position:relative;z-index:1}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap;padding:14px 0 8px}
+.logo{font-size:clamp(1.7rem,5vw,2.9rem);font-weight:700;margin:0;position:relative;letter-spacing:1px;animation:in .8s both}
+.logo span{color:var(--neon)}
+.clock{text-align:right;font-size:2rem;font-weight:700;color:var(--cy);line-height:1;text-shadow:0 0 18px var(--cy)}
+.clock small{display:block;font:400 .8rem 'Be Vietnam Pro';color:var(--mut);text-shadow:none;margin-top:4px}
+@keyframes in{from{opacity:0;transform:translateY(18px)}}
+nav{display:flex;gap:8px;margin:14px 0;position:sticky;top:env(safe-area-inset-top,0px);z-index:20;padding:8px 0;background:linear-gradient(var(--bg) 70%,transparent)}
+nav button{flex:1;max-width:220px;padding:11px 10px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--mut);font:700 .95rem 'Baloo 2',sans-serif;cursor:pointer;transition:.25s;letter-spacing:.5px}
+nav button:hover{color:var(--ink);transform:translateY(-2px)}
+nav button[aria-selected=true]{color:var(--on);background:var(--neon);border-color:var(--neon);box-shadow:0 0 22px color-mix(in srgb,var(--neon) 40%,transparent)}
+section{display:none}section.on{display:block;animation:in .5s both}
+.top{display:grid;grid-template-columns:1.5fr 1fr;gap:14px}
+.now{position:relative;border-radius:20px;padding:20px;background:var(--bg2);isolation:isolate;overflow:hidden}
+.now::before{content:"";position:absolute;inset:0;border-radius:20px;padding:2px;background:conic-gradient(from var(--a),var(--neon),var(--cy),var(--pk),var(--neon));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin 5s linear infinite;z-index:-1}
+@keyframes spin{to{--a:360deg}}
+.now small{color:var(--mut);letter-spacing:2px;font-size:.75rem}
+.now h2{font-size:1.9rem;margin:4px 0 2px}
+.now p{margin:0;color:var(--mut)}
+.pbar{height:8px;border-radius:9px;background:var(--line);margin-top:12px;overflow:hidden}
+.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--neon),var(--cy));box-shadow:0 0 12px var(--neon);transition:width 1s}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.st{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:14px;text-align:center;backdrop-filter:blur(8px)}
+.st b{display:block;font:700 2rem 'Baloo 2',sans-serif;color:var(--neon)}
+.st span{font-size:.78rem;color:var(--mut)}
+.bar{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0;align-items:center}
+.btn{border:0;border-radius:12px;padding:11px 18px;font:700 .95rem 'Baloo 2',sans-serif;color:var(--on);background:var(--neon);cursor:pointer;transition:.2s;box-shadow:0 0 0 color-mix(in srgb,var(--neon) 0%,transparent)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 22px color-mix(in srgb,var(--neon) 40%,transparent)}
+.btn.g{background:transparent;color:var(--ink);border:1px solid var(--line);box-shadow:none}
+.btn.g:hover{border-color:var(--pk);color:var(--pk)}
+.week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px}
+.day{border:1px solid var(--line);border-radius:16px;background:var(--card);padding:10px;min-height:200px;backdrop-filter:blur(8px)}
+.day.today{border-color:var(--neon);box-shadow:0 0 26px color-mix(in srgb,var(--neon) 19%,transparent) inset,0 0 18px color-mix(in srgb,var(--neon) 13%,transparent)}
+.day h3{margin:0 0 8px;font-size:1rem;display:flex;justify-content:space-between;color:var(--mut)}
+.day.today h3{color:var(--neon)}
+.cls{--c:#39ff88;position:relative;border-radius:12px;padding:9px 28px 9px 11px;margin-bottom:8px;background:color-mix(in srgb,var(--c) 14%,transparent);border-left:4px solid var(--c);animation:pop .5s cubic-bezier(.2,1.4,.4,1) both;transition:transform .25s,box-shadow .25s;overflow:hidden}
+.cls:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 8px 22px color-mix(in srgb,var(--c) 40%,transparent)}
+.cls.live{box-shadow:0 0 0 2px var(--c),0 0 24px var(--c);animation:pop .5s both,pulse 1.6s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 2px var(--c),0 0 6px var(--c)}}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.9)}}
+.cls.out{animation:out .35s forwards}@keyframes out{to{opacity:0;transform:translateX(60px) scale(.8)}}
+.cls b{display:block;font:700 .98rem 'Baloo 2',sans-serif;overflow-wrap:anywhere}
+.cls small{display:block;color:var(--mut);font-size:.76rem;line-height:1.35}
+.x{position:absolute;top:6px;right:6px;width:22px;height:22px;border:0;border-radius:50%;background:#ffffff14;color:var(--ink);cursor:pointer;font-size:.9rem;line-height:1;opacity:.6;transition:.2s}
+.x:hover{background:var(--pk);opacity:1;transform:rotate(90deg)}
+.empty{color:var(--mut);font-size:.8rem;text-align:center;padding:24px 4px}
+input,select,textarea{width:100%;padding:11px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px solid var(--cy);outline-offset:2px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:6px 14px;border-radius:30px;border:1px solid var(--line);background:transparent;color:var(--mut);cursor:pointer;font:inherit;font-size:.85rem;transition:.2s}
+.chip[aria-pressed=true]{background:var(--cy);color:var(--on);border-color:var(--cy)}
+.notes{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.note{--c:#8b97b8;position:relative;border:1px solid var(--line);border-top:4px solid var(--c);border-radius:16px;padding:14px;background:var(--card);animation:pop .5s both;transition:.25s}
+.note:hover{transform:translateY(-4px) rotate(-.6deg);box-shadow:0 12px 28px color-mix(in srgb,var(--c) 30%,transparent)}
+.note.out{animation:out .35s forwards}
+.note .tag{font-size:.72rem;font-weight:600;color:var(--c);letter-spacing:1px;text-transform:uppercase}
+.note h3{margin:4px 0 6px;font-size:1.1rem;padding-right:60px;overflow-wrap:anywhere}
+.note p{margin:0 0 10px;color:var(--mut);font-size:.9rem;white-space:pre-wrap;overflow-wrap:anywhere}
+.note.done h3,.note.done p{text-decoration:line-through;opacity:.5}
+.na{display:flex;gap:8px;align-items:center;font-size:.8rem;color:var(--mut)}
+.na button{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:9px;padding:5px 10px;cursor:pointer;font:inherit;font-size:.8rem}
+.na button:hover{border-color:var(--neon)}
+.pin{position:absolute;top:8px;right:8px;border:0;background:none;font-size:1.2rem;cursor:pointer;filter:grayscale(1);opacity:.5;transition:.2s}
+.pin.on{filter:none;opacity:1;transform:rotate(20deg)}
+.pomo{display:grid;place-items:center;gap:16px;padding:10px 0}
+.ring{position:relative;width:min(300px,78vw)}
+.ring svg{width:100%;transform:rotate(-90deg);filter:drop-shadow(0 0 14px var(--neon))}
+.ring circle{fill:none;stroke-width:10;stroke-linecap:round}
+.ring .tm{position:absolute;inset:0;display:grid;place-items:center;font:700 3.4rem 'Baloo 2',sans-serif;text-shadow:0 0 22px var(--neon)}
+.ring .tm small{display:block;font:400 .85rem 'Be Vietnam Pro';color:var(--mut);text-align:center;text-shadow:none}
+dialog{border:1px solid var(--neon);border-radius:20px;background:var(--bg2);color:var(--ink);padding:22px;width:min(440px,92vw);box-shadow:0 0 50px color-mix(in srgb,var(--neon) 27%,transparent)}
+dialog::backdrop{background:#000a;backdrop-filter:blur(5px)}
+dialog[open]{animation:pop .4s cubic-bezier(.2,1.4,.4,1)}
+dialog h2{margin:0 0 12px}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:10px}.fg .w{grid-column:1/-1}
+label{font-size:.78rem;color:var(--mut);display:block;margin-bottom:3px}
+.sw{display:flex;gap:8px}.sw button{width:30px;height:30px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:.2s}
+.sw button[aria-pressed=true]{border-color:#fff;transform:scale(1.2)}
+.toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:30px;opacity:0;transition:.3s;z-index:100;font-weight:600}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+nav{overflow-x:auto;scrollbar-width:none}nav button{white-space:nowrap;flex:1 0 auto}
+.stats.s4{grid-template-columns:repeat(4,1fr)}
+.tbox{position:relative;border:1px solid var(--line);border-radius:18px;background:var(--card);padding:22px;cursor:text;transition:border-color .25s,box-shadow .25s;margin:14px 0 10px;min-height:150px}
+.tbox:focus-within{border-color:var(--cy);box-shadow:0 0 30px color-mix(in srgb,var(--cy) 20%,transparent)}
+.tbox.shake{animation:shk .25s}@keyframes shk{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.tx{font-size:1.35rem;line-height:2;letter-spacing:.3px;overflow-wrap:anywhere;user-select:none}
+.tx .ok{color:var(--neon)}.tx .bad{border-radius:4px}.tx .cur{background:color-mix(in srgb,var(--cy) 25%,transparent);border-radius:4px;animation:blink 1s infinite}
+@keyframes blink{50%{background:color-mix(in srgb,var(--cy) 0%,transparent)}}
+#ti,#kti{position:absolute;inset:0;width:100%;height:100%;opacity:0;resize:none;cursor:text;font-size:16px}
+.tbox.good{animation:gd .5s}@keyframes gd{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--neon) 73%,transparent);border-color:var(--neon)}100%{box-shadow:0 0 0 26px color-mix(in srgb,var(--neon) 0%,transparent)}}
+.combo{height:30px;font:700 1.2rem 'Baloo 2',sans-serif;color:var(--gold,#ffd23f);text-shadow:0 0 16px #ffd23f;transition:.2s}
+.combo.hot{animation:pop .3s both}
+.sky{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.42;animation:drift 24s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(9vw,7vh) scale(1.2)}}
+.stars{position:absolute;inset:0;opacity:var(--st);transition:opacity .6s}
+.star{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;animation:tw 3.2s ease-in-out infinite}
+@keyframes tw{50%{opacity:.15}}
+.moon{position:absolute;top:9%;right:8%;width:84px;height:84px;border-radius:50%;background:var(--moon);box-shadow:0 0 70px 24px var(--moonglow);animation:mf 9s ease-in-out infinite}
+@keyframes mf{50%{transform:translateY(-12px)}}
+.cloud{position:absolute;left:0;height:58px;border-radius:60px;background:var(--cloud);opacity:var(--co);filter:blur(1.5px);animation:cl linear infinite;transition:opacity .6s}
+.cloud::before,.cloud::after{content:"";position:absolute;background:inherit;border-radius:50%}
+.cloud::before{width:46%;height:150%;left:14%;top:-65%}.cloud::after{width:34%;height:115%;right:14%;top:-42%}
+@keyframes cl{from{transform:translateX(-35vw)}to{transform:translateX(135vw)}}
+.logo{text-shadow:0 4px 28px color-mix(in srgb,var(--neon) 45%,transparent);font-weight:800}
+.themes{display:flex;gap:8px}
+.themes button{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--card);cursor:pointer;font-size:1.15rem;transition:.25s;backdrop-filter:blur(8px)}
+.themes button:hover{transform:translateY(-2px)}
+.themes button[aria-pressed=true]{border-color:var(--neon);transform:scale(1.15);box-shadow:0 0 18px color-mix(in srgb,var(--neon) 50%,transparent)}
+.pup{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));font-size:2.5rem;background:none;border:0;cursor:pointer;z-index:30;animation:pw 3s ease-in-out infinite;filter:drop-shadow(0 6px 10px #0004)}
+@keyframes pw{50%{transform:translateY(-7px) rotate(-6deg)}}
+.pup.hop{animation:hop .55s}@keyframes hop{40%{transform:translateY(-34px) rotate(12deg) scale(1.2)}}
+.day,.st,.note,.tbox,.cls,nav button{backdrop-filter:blur(12px)}
+:root[data-theme="day"] .note .tag{color:var(--ink)}
+:root[data-theme="day"] .now h2{color:var(--ink)!important}
+.tx .bad{background:#ff6b8b;color:#fff}
+.bgc{position:fixed;inset:0;z-index:0;pointer-events:none}
+.fxr{position:fixed;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;border:2px solid var(--neon);pointer-events:none;z-index:200;animation:rip .65s ease-out forwards}
+@keyframes rip{to{transform:scale(7);opacity:0}}
+.fxp{position:fixed;pointer-events:none;z-index:200;font-size:16px;margin:-8px 0 0 -8px;animation:fp .85s ease-out forwards}
+@keyframes fp{to{transform:translate(var(--dx),var(--dy)) rotate(var(--r)) scale(.4);opacity:0}}
+.trail{position:fixed;width:7px;height:7px;margin:-3px 0 0 -3px;border-radius:50%;pointer-events:none;z-index:150;animation:tr .6s forwards}
+@keyframes tr{to{transform:scale(0);opacity:0}}
+.cx{font-family:'Cascadia Code','Fira Code',Consolas,'Courier New',monospace;font-size:1.02rem;line-height:1.75;white-space:pre-wrap;overflow-wrap:anywhere;user-select:none}
+.cx .ok{color:var(--neon)}.cx .bad{background:#ff6b8b;color:#fff;border-radius:3px}.cx .cur{background:color-mix(in srgb,var(--cy) 28%,transparent);border-radius:3px;animation:blink 1s infinite}.cx .nl{opacity:.45}
+.kres{margin-top:14px;border:1px solid var(--neon);border-radius:18px;padding:16px;background:var(--card);animation:pop .5s both;backdrop-filter:blur(12px)}
+.kres iframe{width:100%;height:170px;border:1px solid var(--line);border-radius:12px;background:#fff;margin:10px 0 4px;display:none}
+.kdesc{color:var(--mut);margin:10px 0 0;min-height:1.5em}
+@media(max-width:860px){.stats.s4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:860px){.top{grid-template-columns:1fr}.week{grid-template-columns:1fr}.day{min-height:0}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+.logo span{background:linear-gradient(90deg,var(--neon),var(--cy),var(--pk),var(--neon));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shm 6s linear infinite}
+@keyframes shm{to{background-position:300% 0}}
+.sky::after{content:"";position:absolute;inset:-30%;background:conic-gradient(from var(--a),transparent,color-mix(in srgb,var(--o1) 32%,transparent),transparent,color-mix(in srgb,var(--o2) 26%,transparent),transparent,color-mix(in srgb,var(--o3) 26%,transparent),transparent);filter:blur(70px);animation:spin 30s linear infinite;opacity:.6}
+.btn{position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;top:0;left:-70%;width:40%;height:100%;background:linear-gradient(100deg,transparent,#ffffff99,transparent);transform:skewX(-20deg);transition:left .6s}
+.btn:hover::after{left:130%}
+.day,.st,.note,.now{transition:transform .18s ease-out,box-shadow .3s,border-color .3s;will-change:transform}
+.day:hover,.st:hover{border-color:var(--neon);box-shadow:0 14px 34px color-mix(in srgb,var(--neon) 22%,transparent)}
+.st b{transition:transform .3s}.st:hover b{transform:scale(1.18)}
+.fxr{border-width:3px;box-shadow:0 0 14px var(--neon)}
+.fxp{font-size:18px;text-shadow:0 0 10px currentColor}
+.fxf{position:fixed;inset:0;z-index:199;pointer-events:none;background:radial-gradient(circle at var(--fx) var(--fy),color-mix(in srgb,var(--neon) 35%,transparent),transparent 40%);animation:ff .5s forwards}
+@keyframes ff{to{opacity:0}}
+nav button[aria-selected=true]{animation:pop .4s cubic-bezier(.2,1.4,.4,1)}
+.logo{animation:in .8s both,flo 7s ease-in-out .8s infinite}
+@keyframes flo{50%{transform:translateY(-4px)}}
+section.on>*{animation:in .6s cubic-bezier(.2,.9,.3,1) both}
+section.on>*:nth-child(2){animation-delay:.08s}section.on>*:nth-child(3){animation-delay:.16s}section.on>*:nth-child(4){animation-delay:.24s}section.on>*:nth-child(5){animation-delay:.32s}
+.btn:active,.chip:active,nav button:active,.themes button:active,.na button:active,.pup:active{transform:scale(.92)!important}
+.chip,nav button,.na button,.themes button{position:relative;overflow:hidden}
+.boing{animation:boing .45s cubic-bezier(.2,1.5,.4,1)!important}
+@keyframes boing{0%{transform:scale(1)}35%{transform:scale(.86)}70%{transform:scale(1.1)}100%{transform:scale(1)}}
+.rpl{position:absolute;border-radius:50%;background:radial-gradient(circle,#ffffffb0,transparent 70%);transform:scale(0);pointer-events:none;animation:rpl .65s ease-out forwards}
+@keyframes rpl{to{transform:scale(1);opacity:0}}
+.pup::after{content:"";position:absolute;inset:4px;border-radius:50%;border:2px solid var(--neon);animation:ring 2.4s ease-out infinite;pointer-events:none}
+@keyframes ring{from{transform:scale(.8);opacity:.8}to{transform:scale(1.7);opacity:0}}
+.walker{position:fixed;bottom:calc(6px + env(safe-area-inset-bottom,0px));left:0;z-index:2;pointer-events:none;font-size:2rem;opacity:.9;transform:translateX(-12vw);animation:walk 28s linear 2s infinite}
+.walker span{display:block;transform:scaleX(-1);animation:bob .45s ease-in-out infinite alternate}
+@keyframes walk{to{transform:translateX(112vw)}}
+@keyframes bob{to{transform:scaleX(-1) translateY(-9px) rotate(-7deg)}}
+.rain{position:fixed;font-size:22px;pointer-events:none;z-index:240;animation:fall var(--t) linear forwards}
+@keyframes fall{to{transform:translate(var(--dx),115vh) rotate(var(--r));opacity:1}}
+@media(prefers-reduced-motion:reduce){.walker,#cf{display:none}.boing,.rpl,.rain{animation:none!important}}
+.critter{position:fixed;left:0;z-index:3;pointer-events:none;line-height:1;user-select:none;filter:drop-shadow(0 5px 6px #0005);will-change:transform}
+@media(prefers-reduced-motion:reduce){.critter{display:none}}
+:root{--ga:19;--gp:68;--bl:16px}
+.glw{display:flex;align-items:center;gap:6px;font-size:1.25rem;color:var(--ink);margin:0}
+.glw input{width:110px;padding:0;border:0;background:none;accent-color:var(--neon)}
+.day,.st,.note{background-color:color-mix(in srgb,#fff calc(var(--ga)*1%),transparent);background-image:linear-gradient(115deg,transparent 35%,#ffffff30 50%,transparent 65%),linear-gradient(135deg,#ffffff2e,transparent 45%);background-size:250% 100%,100% 100%;background-position:120% 0,0 0;background-repeat:no-repeat;transition:transform .18s ease-out,box-shadow .3s,border-color .3s,background-position .9s}
+.day:hover,.st:hover,.note:hover{background-position:-30% 0,0 0}
+.tbox,.kres{background:linear-gradient(135deg,#ffffff2a,transparent 50%),color-mix(in srgb,#fff calc(var(--ga)*1%),transparent)}
+.now,dialog{background:linear-gradient(135deg,#ffffff26,transparent 50%),color-mix(in srgb,var(--bg2) calc(var(--gp)*1%),transparent)}
+.day,.st,.note,.tbox,.kres,.now,dialog,.themes button,nav button:not([aria-selected=true]){-webkit-backdrop-filter:blur(var(--bl)) saturate(1.7);backdrop-filter:blur(var(--bl)) saturate(1.7);border-color:color-mix(in srgb,#fff 30%,transparent);box-shadow:inset 0 1px 0 #ffffff50,0 10px 30px #0000002e}
+.day.today{box-shadow:inset 0 1px 0 #ffffff50,0 0 26px color-mix(in srgb,var(--neon) 30%,transparent)}
+nav button:not([aria-selected=true]){background:color-mix(in srgb,#fff calc(var(--ga)*1%),transparent)}
+dialog{border-color:color-mix(in srgb,var(--neon) 60%,transparent)}
+input,select,textarea{background:color-mix(in srgb,var(--bg) 60%,transparent)}
+.glw input{background:none}
+.ghost{position:fixed;z-index:2;pointer-events:none;line-height:1;filter:blur(1px) saturate(1.6)}
+.bub{position:fixed;z-index:0;pointer-events:none;border-radius:50%;opacity:0;background:radial-gradient(circle at 30% 28%,#ffffffcc 0,#ffffff44 14%,#ffffff0d 45%,transparent 70%),radial-gradient(circle at 70% 78%,color-mix(in srgb,var(--pk) 40%,transparent),transparent 55%);border:1.5px solid #ffffff66;box-shadow:inset 0 0 14px #ffffff55,0 0 18px color-mix(in srgb,var(--cy) 35%,transparent)}
+.sky::before{content:"";position:absolute;left:50%;top:-40%;width:170vmax;height:170vmax;margin-left:-85vmax;background:repeating-conic-gradient(from 0deg,#ffffff16 0 5deg,transparent 5deg 16deg);-webkit-mask-image:radial-gradient(circle,#000 0,transparent 58%);mask-image:radial-gradient(circle,#000 0,transparent 58%);animation:rays 90s linear infinite,rayp 8s ease-in-out infinite}
+@keyframes rays{to{transform:rotate(360deg)}}
+@keyframes rayp{50%{opacity:.3}}
+@media(prefers-reduced-motion:reduce){.ghost,.bub{display:none}.sky::before{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="sky" id="sky" aria-hidden="true"></div>
+<canvas class="bgc" id="bgc" aria-hidden="true"></canvas>
+<div class="wrap">
+ <header>
+  <h1 class="logo f" data-t="Thời khóa biểu Cún Con 🐶">Thời khóa biểu <span>Cún Con</span> 🐶</h1>
+  <div class="themes" id="themes" role="group" aria-label="Chọn giao diện"><button data-t="night" aria-pressed="true" aria-label="Đêm lo-fi" title="Đêm lo-fi">🌙</button><button data-t="sunset" aria-pressed="false" aria-label="Hoàng hôn" title="Hoàng hôn">🌇</button><button data-t="forest" aria-pressed="false" aria-label="Rừng xanh" title="Rừng xanh">🌲</button><button data-t="day" aria-pressed="false" aria-label="Bầu trời ban ngày" title="Bầu trời ban ngày">☀️</button></div>
+  <label class="glw" title="Độ trong suốt">🪟<input type="range" id="gl" min="0" max="100" value="50" aria-label="Độ trong suốt"></label><div class="clock f" aria-live="off"><span id="clk">00:00:00</span><small id="dt"></small></div>
+ </header>
+ <nav role="tablist">
+  <button role="tab" aria-selected="true" data-v="v1">▦ Thời khóa biểu</button>
+  <button role="tab" aria-selected="false" data-v="v2">✎ Ghi chú học bài</button>
+  <button role="tab" aria-selected="false" data-v="v3">◉ Tập trung</button>
+  <button role="tab" aria-selected="false" data-v="v4">⌨ Luyện gõ</button>
+  <button role="tab" aria-selected="false" data-v="v5">💻 Luyện code</button>
+ </nav>
+
+ <section id="v1" class="on">
+  <div class="top">
+   <div class="now" id="now" aria-live="polite"></div>
+   <div class="stats"><div class="st"><b id="s1">0</b><span>tiết / tuần</span></div><div class="st"><b id="s2">0</b><span>giờ học / tuần</span></div><div class="st"><b id="s3">0</b><span>ghi chú chưa thuộc</span></div></div>
+  </div>
+  <div class="bar"><button class="btn" id="addc">＋ Thêm môn học</button><button class="btn g" id="clr">Xóa toàn bộ</button></div>
+  <div class="week" id="week"></div>
+ </section>
+
+ <section id="v2">
+  <div class="bar"><button class="btn" id="addn">＋ Ghi chú mới</button><input id="q" type="search" placeholder="Tìm ghi chú…" style="max-width:260px" aria-label="Tìm ghi chú"></div>
+  <div class="chips" id="chips" style="margin-bottom:16px"></div>
+  <div class="notes" id="notes"></div>
+ </section>
+
+ <section id="v3">
+  <div class="pomo">
+   <div class="chips" id="modes" style="justify-content:center"><button class="chip" data-m="15" data-k="f" aria-pressed="false">Học 15'</button><button class="chip" data-m="25" data-k="f" aria-pressed="true">Học 25'</button><button class="chip" data-m="30" data-k="f" aria-pressed="false">Học 30'</button><button class="chip" data-m="45" data-k="f" aria-pressed="false">Học 45'</button><button class="chip" data-m="60" data-k="f" aria-pressed="false">Học 1 giờ</button><button class="chip" data-m="90" data-k="f" aria-pressed="false">Học 1,5 giờ</button><button class="chip" data-m="120" data-k="f" aria-pressed="false">Học 2 giờ</button><button class="chip" data-m="180" data-k="f" aria-pressed="false">Học 3 giờ</button><button class="chip" data-m="5" data-k="r" aria-pressed="false">Nghỉ 5'</button><button class="chip" data-m="10" data-k="r" aria-pressed="false">Nghỉ 10'</button><button class="chip" data-m="15" data-k="r" aria-pressed="false">Nghỉ 15'</button></div>
+   <div class="bar" style="margin:0"><input id="cm" type="number" min="1" max="600" placeholder="Số phút khác" style="max-width:150px" aria-label="Số phút tùy chọn"><button class="btn g" id="cb">Đặt giờ</button></div>
+   <div class="ring"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="90" stroke="var(--line)"/><circle id="rg" cx="100" cy="100" r="90" stroke="var(--neon)" stroke-dasharray="565.5" stroke-dashoffset="0"/></svg><div class="tm"><div><span id="pt">25:00</span><small id="ps">Sẵn sàng</small></div></div></div>
+   <div class="bar"><button class="btn" id="pgo">▶ Bắt đầu</button><button class="btn g" id="prs">Đặt lại</button></div>
+   <p style="color:var(--mut);margin:0">Phiên đã hoàn thành hôm nay: <b id="pc" style="color:var(--neon)">0</b></p>
+  </div>
+ </section>
+ <section id="v4">
+  <div class="bar"><select id="tsel" aria-label="Chọn văn bản" style="max-width:300px"></select><select id="tlim" aria-label="Giới hạn thời gian" style="max-width:190px"><option value="0">Không giới hạn giờ</option><option value="30">30 giây</option><option value="60">1 phút</option><option value="120">2 phút</option><option value="300">5 phút</option></select><button class="btn g" id="tnew">↻ Làm mới (Esc)</button><button class="btn g" id="tfin">■ Kết thúc &amp; xem kết quả</button></div>
+  <textarea id="tc" rows="3" maxlength="700" placeholder="Dán hoặc gõ văn bản bạn muốn luyện vào đây, rồi bấm Làm mới…" style="display:none;margin-bottom:10px"></textarea>
+  <div class="stats s4"><div class="st"><b id="w1">0</b><span>từ / phút</span></div><div class="st"><b id="w2">100%</b><span>chính xác</span></div><div class="st"><b id="w3">0</b><span>câu hoàn thành</span></div><div class="st"><b id="w4">0:00</b><span>thời gian</span></div></div>
+  <div class="tbox" id="tbox"><div class="tx" id="tx"></div><textarea id="ti" aria-label="Ô gõ văn bản" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea></div>
+  <div class="pbar"><i id="tbar"></i></div>
+  <p id="tnx" style="color:var(--mut);font-size:.9rem;margin:8px 0 0;opacity:.75;overflow-wrap:anywhere"></p>
+  <div class="combo" id="tcb"></div>
+  <p id="th" style="color:var(--mut);margin:0"></p>
+ </section>
+ <section id="v5">
+  <div class="bar"><select id="kl" aria-label="Ngôn ngữ" style="max-width:260px"><option value="java">☕ Java</option><option value="c">🅲 C</option><option value="web">🌐 HTML + CSS + JavaScript</option></select><select id="ka" aria-label="Thuật toán" style="max-width:280px"></select><button class="btn g" id="kn">🎲 Bài ngẫu nhiên</button><button class="btn g" id="kr">↻ Gõ lại (Esc)</button></div>
+  <div class="stats s4"><div class="st"><b id="k1">0</b><span>ký tự / phút</span></div><div class="st"><b id="k2">100%</b><span>chính xác</span></div><div class="st"><b id="k3">0</b><span>bài đã xong</span></div><div class="st"><b id="k4">0:00</b><span>thời gian</span></div></div>
+  <p class="kdesc" id="kd"></p>
+  <div class="tbox" id="kbox"><div class="cx" id="kx"></div><textarea id="kti" aria-label="Ô gõ code" spellcheck="false" autocomplete="off" autocapitalize="off" autocorrect="off"></textarea></div>
+  <div class="pbar"><i id="kbar"></i></div>
+  <p style="color:var(--mut);font-size:.85rem;margin:8px 0 0">Mẹo: tắt bộ gõ tiếng Việt khi gõ code. Bấm Enter, trang tự thụt lề giúp bạn. Gõ đúng hết bài sẽ hiện kết quả, bấm Enter để sang bài tiếp.</p>
+  <div class="kres" id="kres" style="display:none"><b class="f" id="kok" style="font-size:1.2rem;color:var(--neon)"></b><p id="kex" style="color:var(--mut);margin:6px 0 0"></p><iframe id="kpv" sandbox="allow-scripts" title="Kết quả chạy thử"></iframe><div class="bar" style="margin:10px 0 0"><button class="btn" id="knx">Bài tiếp theo ➜</button></div></div>
+ </section>
+</div>
+
+<dialog id="dr"><h2 class="f" id="rh">Kết quả</h2>
+ <div class="stats" style="margin:10px 0"><div class="st"><b id="rw">0</b><span>từ / phút</span></div><div class="st"><b id="ra">0%</b><span>chính xác</span></div><div class="st"><b id="rt">0s</b><span>thời gian</span></div></div>
+ <p id="rk" class="f" style="font-size:1.4rem;margin:6px 0;color:var(--cy)"></p><p id="rb" style="color:var(--mut);margin:0 0 12px"></p>
+ <div class="bar" style="margin:0"><button class="btn" id="rg2">Gõ lại</button><button class="btn g" data-close>Đóng</button></div></dialog>
+
+<dialog id="dc"><h2 class="f">Thêm môn học</h2>
+ <form id="fc" class="fg">
+  <div class="w"><label for="cs">Tên môn</label><input id="cs" maxlength="40" required placeholder="Ví dụ: Toán"></div>
+  <div><label for="cd">Thứ</label><select id="cd"></select></div>
+  <div><label for="cr">Phòng</label><input id="cr" maxlength="20" placeholder="A101"></div>
+  <div><label for="ca">Bắt đầu</label><input id="ca" type="time" value="07:00" required></div>
+  <div><label for="ce">Kết thúc</label><input id="ce" type="time" value="08:30" required></div>
+  <div class="w"><label for="ct">Giáo viên</label><input id="ct" maxlength="40" placeholder="Không bắt buộc"></div>
+  <div class="w"><label>Màu</label><div class="sw" id="sw"></div></div>
+  <div class="w bar" style="margin:6px 0 0"><button class="btn" type="submit">Thêm</button><button class="btn g" type="button" data-close>Hủy</button></div>
+ </form></dialog>
+
+<dialog id="dn"><h2 class="f">Ghi chú học bài</h2>
+ <form id="fn" class="fg">
+  <div class="w"><label for="ns">Môn</label><select id="ns"></select></div>
+  <div class="w"><label for="nt">Tiêu đề</label><input id="nt" maxlength="60" required placeholder="Ví dụ: Công thức đạo hàm"></div>
+  <div class="w"><label for="nb">Nội dung</label><textarea id="nb" rows="6" placeholder="Ghi những gì cần nhớ…"></textarea></div>
+  <div class="w bar" style="margin:6px 0 0"><button class="btn" type="submit">Lưu ghi chú</button><button class="btn g" type="button" data-close>Hủy</button></div>
+ </form></dialog>
+<button class="pup" id="pup" aria-label="Cún con">🐶</button>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+var DAYS=['Thứ 2','Thứ 3','Thứ 4','Thứ 5','Thứ 6','Thứ 7','Chủ nhật'],COL=['#8be9c8','#8ecbff','#ff9ec7','#ffd98e','#b9a5ff','#ffae8a'],KEY='studydeck-v1';
+var S={classes:[],notes:[],sess:0,sd:''},color=0,nf='all',nq='';
+var $=function(i){return document.getElementById(i)};
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
+function esc(s){var d=document.createElement('div');d.textContent=s==null?'':s;return d.innerHTML}
+function mins(t){var a=t.split(':');return +a[0]*60+ +a[1]}
+function pad(n){return ('0'+n).slice(-2)}
+function toast(m){var t=$('toast');t.textContent=m;t.classList.add('on');setTimeout(function(){t.classList.remove('on')},2200)}
+function seed(){
+ S.classes=[['Toán',0,'07:00','08:30',0,'A101','Cô Lan'],['Ngữ văn',0,'08:45','10:15',2,'A102','Thầy Hùng'],['Tiếng Anh',1,'07:00','08:30',1,'B201','Cô Mai'],['Vật lý',2,'09:00','10:30',4,'C301','Thầy Nam'],['Hóa học',3,'07:00','08:30',5,'C302','Cô Hà'],['Toán',4,'13:30','15:00',0,'A101','Cô Lan'],['Tiếng Anh',5,'08:00','09:30',1,'B201','Cô Mai']].map(function(a){return{id:uid(),s:a[0],d:a[1],a:a[2],e:a[3],c:a[4],r:a[5],t:a[6]}});
+ S.notes=[{id:uid(),subj:'Toán',title:'Mẹo học bài',body:'Làm lại 3 bài khó nhất mỗi ngày.\nGhi công thức ra giấy nháp trước khi ngủ.',done:false,pin:true}];
+}
+try{var r=localStorage.getItem(KEY);if(r){S=Object.assign(S,JSON.parse(r))}else seed()}catch(e){seed()}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function sc(name){for(var i=0;i<S.classes.length;i++)if(S.classes[i].s===name)return COL[S.classes[i].c%6];return '#8b97b8'}
+function subjects(){var u=[];S.classes.forEach(function(c){if(u.indexOf(c.s)<0)u.push(c.s)});return u}
+function today(){return (new Date().getDay()+6)%7}
+/* timetable */
+function rT(){
+ var td=today(),nm=new Date().getHours()*60+new Date().getMinutes(),h='';
+ for(var d=0;d<7;d++){
+  var l=S.classes.filter(function(c){return c.d===d}).sort(function(a,b){return mins(a.a)-mins(b.a)});
+  h+='<div class="day'+(d===td?' today':'')+'"><h3 class="f"><span>'+DAYS[d]+'</span><span>'+(l.length?l.length+' tiết':'')+'</span></h3>';
+  h+=l.length?l.map(function(c,i){var live=d===td&&mins(c.a)<=nm&&nm<mins(c.e);
+   return '<div class="cls'+(live?' live':'')+'" style="--c:'+COL[c.c%6]+';animation-delay:'+(i*70)+'ms"><b>'+esc(c.s)+'</b><small>'+c.a+' – '+c.e+'</small>'+((c.r||c.t)?'<small>'+esc([c.r,c.t].filter(Boolean).join(' · '))+'</small>':'')+'<button class="x" data-dc="'+c.id+'" aria-label="Xóa '+esc(c.s)+'">×</button></div>'}).join(''):'<div class="empty">Trống<br>Nghỉ ngơi nhé 😎</div>';
+  h+='</div>';
+ }
+ $('week').innerHTML=h;
+ var tot=0;S.classes.forEach(function(c){tot+=mins(c.e)-mins(c.a)});
+ $('s1').textContent=S.classes.length;$('s2').textContent=(tot/60).toFixed(1).replace('.0','');$('s3').textContent=S.notes.filter(function(n){return!n.done}).length;
+}
+function rNow(){
+ var n=new Date(),nm=n.getHours()*60+n.getMinutes(),td=today(),l=S.classes.filter(function(c){return c.d===td}).sort(function(a,b){return mins(a.a)-mins(b.a)}),cur=null,nx=null;
+ l.forEach(function(c){if(mins(c.a)<=nm&&nm<mins(c.e))cur=c;else if(mins(c.a)>nm&&!nx)nx=c});
+ var h='';
+ if(cur){var p=Math.round((nm-mins(cur.a))/(mins(cur.e)-mins(cur.a))*100);h='<small>ĐANG HỌC</small><h2 class="f" style="color:'+COL[cur.c%6]+'">'+esc(cur.s)+'</h2><p>Còn '+(mins(cur.e)-nm)+' phút · phòng '+esc(cur.r||'—')+'</p><div class="pbar"><i style="width:'+p+'%"></i></div>'}
+ else if(nx){h='<small>TIẾT TIẾP THEO HÔM NAY</small><h2 class="f" style="color:'+COL[nx.c%6]+'">'+esc(nx.s)+'</h2><p>Lúc '+nx.a+' · sau '+(mins(nx.a)-nm)+' phút · phòng '+esc(nx.r||'—')+'</p><div class="pbar"><i style="width:0"></i></div>'}
+ else{h='<small>HÔM NAY</small><h2 class="f">'+(l.length?'Đã hết tiết 🎉':'Không có tiết nào')+'</h2><p>Dành thời gian ôn bài và ghi chú nhé.</p><div class="pbar"><i style="width:'+(l.length?100:0)+'%"></i></div>'}
+ if($('now').dataset.k!==h){$('now').innerHTML=h;$('now').dataset.k=h}
+}
+/* notes */
+function rN(){
+ var subs=subjects().concat(['Chung']);
+ $('chips').innerHTML=['all'].concat(subs).map(function(s){return '<button class="chip" data-f="'+esc(s)+'" aria-pressed="'+(nf===s)+'">'+(s==='all'?'Tất cả':esc(s))+'</button>'}).join('');
+ var l=S.notes.filter(function(n){return(nf==='all'||n.subj===nf)&&(!nq||(n.title+' '+n.body).toLowerCase().indexOf(nq)>=0)}).sort(function(a,b){return (b.pin|0)-(a.pin|0)});
+ $('notes').innerHTML=l.length?l.map(function(n,i){return '<article class="note'+(n.done?' done':'')+'" style="--c:'+sc(n.subj)+';animation-delay:'+(i*60)+'ms"><button class="pin'+(n.pin?' on':'')+'" data-p="'+n.id+'" aria-label="Ghim">📌</button><span class="tag">'+esc(n.subj)+'</span><h3 class="f">'+esc(n.title)+'</h3><p>'+esc(n.body)+'</p><div class="na"><button data-n="'+n.id+'">'+(n.done?'↺ Học lại':'✔ Đã thuộc')+'</button><button data-dn="'+n.id+'">Xóa</button></div></article>'}).join(''):'<div class="empty" style="grid-column:1/-1">Chưa có ghi chú nào. Bấm “Ghi chú mới” để bắt đầu học 📚</div>';
+ $('ns').innerHTML=subs.map(function(s){return '<option>'+esc(s)+'</option>'}).join('');
+ if(typeof fillSel==='function'&&PASS)fillSel();
+}
+function all(){rT();rNow();rN()}
+/* events */
+document.querySelector('nav').onclick=function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(document.querySelectorAll('nav button'),function(x){x.setAttribute('aria-selected',x===b)});[].forEach.call(document.querySelectorAll('section'),function(s){s.classList.toggle('on',s.id===b.dataset.v)});if(b.dataset.v==='v4')setTimeout(function(){$('ti').focus()},60);if(b.dataset.v==='v5')setTimeout(function(){$('kti').focus()},60)};
+$('sw').innerHTML=COL.map(function(c,i){return '<button type="button" style="background:'+c+'" data-c="'+i+'" aria-pressed="'+(i===0)+'" aria-label="Màu '+(i+1)+'"></button>'}).join('');
+$('sw').onclick=function(e){var b=e.target.closest('button');if(!b)return;color=+b.dataset.c;[].forEach.call($('sw').children,function(x){x.setAttribute('aria-pressed',x===b)})};
+$('cd').innerHTML=DAYS.map(function(d,i){return '<option value="'+i+'">'+d+'</option>'}).join('');
+document.addEventListener('click',function(e){if(e.target.hasAttribute('data-close'))e.target.closest('dialog').close()});
+$('addc').onclick=function(){$('cd').value=today();$('dc').showModal()};
+$('addn').onclick=function(){$('dn').showModal()};
+$('fc').onsubmit=function(e){
+ e.preventDefault();var c={id:uid(),s:$('cs').value.trim(),d:+$('cd').value,a:$('ca').value,e:$('ce').value,c:color,r:$('cr').value.trim(),t:$('ct').value.trim()};
+ if(mins(c.e)<=mins(c.a))return toast('Giờ kết thúc phải sau giờ bắt đầu');
+ var ov=S.classes.filter(function(x){return x.d===c.d&&mins(x.a)<mins(c.e)&&mins(c.a)<mins(x.e)})[0];
+ S.classes.push(c);save();all();$('fc').reset();$('dc').close();toast(ov?'Đã thêm, nhưng trùng giờ với '+ov.s:'Đã thêm '+c.s+' ✔');
+};
+$('fn').onsubmit=function(e){e.preventDefault();S.notes.unshift({id:uid(),subj:$('ns').value,title:$('nt').value.trim(),body:$('nb').value,done:false,pin:false});save();all();$('fn').reset();$('dn').close();toast('Đã lưu ghi chú ✔')};
+function rm(arr,id,sel){var el=document.querySelector(sel);if(el)(el.closest('.cls,.note')||el).classList.add('out');setTimeout(function(){S[arr]=S[arr].filter(function(x){return x.id!==id});save();all()},330)}
+$('week').onclick=function(e){var b=e.target.closest('[data-dc]');if(b)rm('classes',b.dataset.dc,'[data-dc="'+b.dataset.dc+'"]')};
+$('notes').onclick=function(e){
+ var p=e.target.closest('[data-p]'),n=e.target.closest('[data-n]'),d=e.target.closest('[data-dn]');
+ if(p){var x=S.notes.filter(function(a){return a.id===p.dataset.p})[0];x.pin=!x.pin;save();rN()}
+ if(n){var y=S.notes.filter(function(a){return a.id===n.dataset.n})[0];y.done=!y.done;save();all();if(y.done){confetti(innerWidth/2,innerHeight*.6,50);toast('Giỏi lắm! Đã thuộc 💪')}}
+ if(d)rm('notes',d.dataset.dn,'[data-dn="'+d.dataset.dn+'"]');
+};
+$('chips').onclick=function(e){var b=e.target.closest('[data-f]');if(b){nf=b.dataset.f;rN()}};
+$('q').oninput=function(){nq=this.value.toLowerCase();rN()};
+$('clr').onclick=function(){if(confirm('Xóa toàn bộ thời khóa biểu?')){S.classes=[];save();all()}};
+document.addEventListener('pointermove',function(e){document.body.style.setProperty('--mx',e.clientX+'px');document.body.style.setProperty('--my',e.clientY+'px')});
+/* clock */
+function tick(){var n=new Date();$('clk').textContent=pad(n.getHours())+':'+pad(n.getMinutes())+':'+pad(n.getSeconds());$('dt').textContent=DAYS[today()]+', '+pad(n.getDate())+'/'+pad(n.getMonth()+1)+'/'+n.getFullYear()}
+tick();setInterval(tick,1000);setInterval(function(){rNow();rT()},30000);
+/* pomodoro */
+var kind='f',tot=1500,left=1500,run=null,C=565.5,td0=new Date().toDateString();
+if(S.sd!==td0){S.sess=0;S.sd=td0}
+function fp(){var h=Math.floor(left/3600),m=Math.floor(left%3600/60),s=left%60,t=(h?h+':':'')+pad(m)+':'+pad(s);$('pt').textContent=t;$('rg').style.strokeDashoffset=C*(1-left/tot);document.title=run?t+' · Tập trung':'Thời khóa biểu Cún Con 🐶';$('pc').textContent=S.sess}
+function beep(){try{var a=new(window.AudioContext||window.webkitAudioContext)(),o=a.createOscillator(),g=a.createGain();o.connect(g);g.connect(a.destination);o.frequency.value=880;g.gain.setValueAtTime(.2,a.currentTime);g.gain.exponentialRampToValueAtTime(.001,a.currentTime+1);o.start();o.stop(a.currentTime+1)}catch(e){}}
+function stop(){clearInterval(run);run=null;$('pgo').textContent='▶ Bắt đầu'}
+$('pgo').onclick=function(){
+ if(run){stop();$('ps').textContent='Tạm dừng';fp();return}
+ $('pgo').textContent='❚❚ Tạm dừng';$('ps').textContent='Đang tập trung…';
+ var end=Date.now()+left*1000;
+ run=setInterval(function(){left=Math.max(0,Math.round((end-Date.now())/1000));if(left<=0){left=0;var w=kind==='f';stop();beep();$('ps').textContent=w?'Xong! Nghỉ chút nhé 🎉':'Hết giờ nghỉ!';if(w){S.sess++;save();confetti(innerWidth/2,innerHeight*.5,130)}toast(w?'Xong '+Math.round(tot/60)+' phút tập trung, quá đỉnh 🔥':'Quay lại học thôi!')}fp()},1000);
+};
+$('prs').onclick=function(){stop();left=tot;$('ps').textContent='Sẵn sàng';fp()};
+$('modes').onclick=function(e){var b=e.target.closest('[data-m]');if(!b)return;stop();kind=b.dataset.k;tot=left=+b.dataset.m*60;[].forEach.call($('modes').children,function(x){x.setAttribute('aria-pressed',x===b)});$('ps').textContent='Sẵn sàng';fp()};
+$('cb').onclick=function(){var v=Math.floor(+$('cm').value);if(!(v>=1&&v<=600))return toast('Nhập từ 1 đến 600 phút');stop();kind='f';tot=left=v*60;[].forEach.call($('modes').children,function(x){x.setAttribute('aria-pressed','false')});$('ps').textContent='Sẵn sàng · '+v+' phút';fp()};
+
+/* luyện gõ */
+var PASS=[['Học tập kiên trì','Học tập là một hành trình dài, mỗi ngày tiến bộ một chút sẽ tạo nên khác biệt lớn. Hãy kiên trì, đừng so sánh mình với người khác, chỉ cần hôm nay giỏi hơn hôm qua là đủ.'],['Mẹo gõ mười ngón','Gõ mười ngón giúp bạn viết nhanh hơn và tiết kiệm nhiều thời gian khi làm bài. Hãy đặt tay đúng vị trí, nhìn vào màn hình thay vì nhìn bàn phím, và giữ nhịp gõ thật đều.'],['Buổi sáng yên bình','Buổi sáng, sương còn đọng trên lá, tiếng chim hót vang khắp con đường nhỏ. Mặt trời lên dần, nhuộm vàng những cánh đồng lúa chín và mang đến một ngày mới tràn đầy hy vọng.'],['Khoa học: Trái Đất','Trái Đất quay quanh Mặt Trời mất khoảng ba trăm sáu mươi lăm ngày, và quay quanh trục của mình mất khoảng hai mươi bốn giờ. Nhờ vậy, chúng ta có ngày và đêm, cùng bốn mùa trong năm.'],['Gia đình','Gia đình là nơi ta trở về sau mỗi ngày dài. Bữa cơm tối đầy tiếng cười, những lời hỏi han giản dị chính là món quà quý giá nhất mà không tiền bạc nào mua được.'],['English practice','The quick brown fox jumps over the lazy dog. Practice a little every day and your typing speed will grow faster than you expect.']];
+var PROV=["Có công mài sắt có ngày nên kim.","Uống nước nhớ nguồn.","Ăn quả nhớ kẻ trồng cây.","Học thầy không tày học bạn.","Một cây làm chẳng nên non, ba cây chụm lại nên hòn núi cao.","Lá lành đùm lá rách.","Có chí thì nên.","Thất bại là mẹ thành công.","Đi một ngày đàng, học một sàng khôn.","Gần mực thì đen, gần đèn thì rạng.","Tốt gỗ hơn tốt nước sơn.","Nước chảy đá mòn.","Có làm thì mới có ăn.","Học ăn, học nói, học gói, học mở.","Kiến tha lâu cũng đầy tổ.","Đoàn kết là sức mạnh.","Không thầy đố mày làm nên.","Lời nói chẳng mất tiền mua, lựa lời mà nói cho vừa lòng nhau.","Ở hiền gặp lành.","Chậm mà chắc.","Tiên học lễ, hậu học văn.","Nhất nghệ tinh, nhất thân vinh.","Muốn sang thì bắc cầu kiều, muốn con hay chữ phải yêu lấy thầy.","Đói cho sạch, rách cho thơm.","Ăn có nhai, nói có nghĩ.","Dục tốc bất đạt.","Một điều nhịn, chín điều lành.","Chớ thấy sóng cả mà ngã tay chèo.","Trăm hay không bằng tay quen.","Nhiều tay vỗ nên kêu.","Cây ngay không sợ chết đứng.","Mưa dầm thấm lâu.","Thương người như thể thương thân.","Giấy rách phải giữ lấy lề.","Công cha như núi Thái Sơn, nghĩa mẹ như nước trong nguồn chảy ra.","Ăn trông nồi, ngồi trông hướng.","Một giọt máu đào hơn ao nước lã.","Biết người biết ta, trăm trận trăm thắng.","Siêng làm thì có, siêng học thì hay.","Có đi có lại mới toại lòng nhau.","Gieo gió gặt bão.","Đường dài mới biết ngựa hay.","Nói ít làm nhiều.","Của một đồng, công một nén."],
+STUDY=["Mỗi ngày dành ít nhất ba mươi phút để ôn lại bài cũ.","Ghi chép ngắn gọn giúp bạn nhớ lâu hơn rất nhiều.","Hãy tắt điện thoại khi bạn cần tập trung làm bài.","Giải thích lại bài cho bạn bè là cách học hiệu quả nhất.","Ngủ đủ giấc giúp não bộ ghi nhớ kiến thức tốt hơn.","Đừng chờ đến sát ngày thi mới bắt đầu ôn tập.","Một bảng thời khóa biểu rõ ràng giúp ta quản lý thời gian tốt hơn.","Hãy đọc kỹ đề bài trước khi bắt tay vào làm.","Sai lầm là cơ hội để chúng ta học thêm điều mới.","Hãy chia nhỏ mục tiêu lớn thành những việc dễ làm hơn.","Uống đủ nước và nghỉ giải lao sau mỗi giờ học.","Bài toán khó sẽ dễ hơn khi bạn bình tĩnh suy nghĩ.","Đọc sách mỗi ngày giúp vốn từ của bạn thêm phong phú.","Luyện gõ mười ngón đều đặn sẽ giúp bạn làm việc nhanh hơn.","Hôm nay mình đã học được một điều thật thú vị.","Kiên nhẫn là chìa khóa của mọi thành công.","Bạn có thể làm được, chỉ cần bắt đầu ngay bây giờ.","Thầy cô luôn mong học trò chăm ngoan và tiến bộ.","Giờ ra chơi, chúng em cùng nhau chơi đá cầu ngoài sân trường.","Cuối tuần này cả lớp sẽ đi dã ngoại ở ngoại thành.","Tiếng trống trường vang lên báo hiệu giờ vào lớp.","Em rất thích môn Địa lý vì được khám phá nhiều vùng đất mới.","Chiếc bút máy này là quà sinh nhật mẹ tặng em.","Thư viện là nơi yên tĩnh để đọc sách và làm bài.","Chúng ta cùng cố gắng để đạt kết quả tốt trong kỳ thi.","Học nhóm giúp mọi người hiểu bài sâu hơn và vui hơn.","Hãy viết ra kế hoạch học tập của tuần này.","Mỗi trang sách là một cánh cửa mở ra thế giới mới.","Bài tập về nhà hôm nay là viết một đoạn văn ngắn.","Muốn giỏi toán, bạn cần làm thật nhiều bài tập khác nhau."],
+EN=["Practice makes perfect.","The early bird catches the worm.","Learning never exhausts the mind.","Every expert was once a beginner.","Small steps every day lead to big results.","Keep calm and keep typing.","A good plan today is better than a perfect plan tomorrow.","Success comes from consistent effort.","Reading is to the mind what exercise is to the body.","Believe in yourself and all that you are.","Time is the most valuable thing we can spend.","Where there is a will, there is a way.","Fall seven times, stand up eight.","Do something today that your future self will thank you for.","The journey of a thousand miles begins with a single step.","Focus on progress, not perfection.","Knowledge is power, but practice makes it useful.","Good habits are built one day at a time.","Mistakes are proof that you are trying.","Dream big, work hard, and stay humble."],
+GT=["Buổi sáng","Buổi chiều","Buổi tối","Cuối tuần","Hôm qua","Sáng nay","Chiều nay","Mỗi ngày","Vào kỳ nghỉ","Sau giờ học"],
+GS=["em","bạn Lan","anh Minh","cô giáo","cả nhà mình","chú mèo nhỏ","chị Hoa","bố","mẹ","ông bà","các bạn trong lớp","bé Bông"],
+GV=["đọc một cuốn sách hay","nấu bữa cơm thật ngon","đi dạo quanh công viên","làm bài tập về nhà","tưới cây trước sân","chơi cờ vua cùng nhau","xem một bộ phim vui","tập thể dục ngoài trời","chuẩn bị bài cho ngày mai","viết thư cho người bạn xa","vẽ một bức tranh phong cảnh","dọn dẹp lại căn phòng","nghe nhạc nhẹ nhàng","ôn lại các từ vựng mới"],
+GE=["cùng với mọi người","trong niềm vui trọn vẹn","một cách chăm chỉ","với tâm trạng thật thoải mái","rồi nghỉ ngơi một chút","và cảm thấy rất hạnh phúc","trong bầu không khí yên bình"];
+function rnd(a){return a[Math.floor(Math.random()*a.length)]}
+var T={mode:'r',k:'v',txt:'',nxt:'',st:0,iv:null,done:false,comp:false,prev:0,cnt:0,okc:0,mis:0,words:0,flag:false};
+function pick(k){var t,n=0,r;do{r=Math.random();t=k==='e'?rnd(EN):k==='p'?rnd(PROV):r<.3?rnd(PROV):r<.6?rnd(STUDY):rnd(GT)+', '+rnd(GS)+' '+rnd(GV)+' '+rnd(GE)+'.';n++}while(t===T.txt&&n<6);return t.normalize('NFC')}
+function fillSel(){var el=$('tsel'),cur=el.value,h='<option value="rv">🎲 Câu ngẫu nhiên (tiếng Việt)</option><option value="rp">🎲 Tục ngữ ngẫu nhiên</option><option value="re">🎲 English ngẫu nhiên</option>';h+=PASS.map(function(p,i){return '<option value="p'+i+'">Bài dài: '+p[0]+'</option>'}).join('');h+=S.notes.map(function(n){return '<option value="n'+n.id+'">Ghi chú: '+esc(n.title)+'</option>'}).join('')+'<option value="c">✎ Văn bản của tôi…</option>';el.innerHTML=h;if(cur&&el.querySelector('[value="'+cur+'"]'))el.value=cur}
+function getTxt(){var v=$('tsel').value,t='';if(v==='c')t=$('tc').value;else if(v[0]==='p')t=PASS[+v.slice(1)][1];else{var n=S.notes.filter(function(x){return 'n'+x.id===v})[0];t=n?n.title+'. '+n.body:''}return t.replace(/\s+/g,' ').trim().normalize('NFC').slice(0,700)}
+function fm(x){x=Math.max(0,Math.round(x));return Math.floor(x/60)+':'+pad(x%60)}
+function tr(v){
+ if(!T.txt){$('tx').innerHTML='<span style="color:var(--mut)">Chưa có văn bản. Hãy nhập văn bản ở ô phía trên rồi bấm Làm mới.</span>';$('tbar').style.width='0';return}
+ var h='';for(var i=0;i<T.txt.length;i++){var c=T.txt[i],cl=i<v.length?(v[i]===c?'ok':'bad'):(i===v.length?'cur':''),e=c==='<'?'&lt;':c==='&'?'&amp;':c;h+='<span class="'+cl+'">'+(c===' '&&cl==='bad'?'␣':e)+'</span>'}
+ $('tx').innerHTML=h;$('tbar').style.width=Math.min(100,v.length/T.txt.length*100)+'%';
+}
+function tstat(){
+ var v=$('ti').value.normalize('NFC'),ok=0,n=Math.min(v.length,T.txt.length),i;for(i=0;i<n;i++)if(v[i]===T.txt[i])ok++;
+ var sec=T.st?(Date.now()-T.st)/1000:0,w=sec>1?Math.round((ok+T.okc)/5/(sec/60)):0,acc=T.words?Math.max(0,Math.round((T.words-T.mis)/T.words*100)):100,l=+$('tlim').value;
+ $('w1').textContent=w;$('w2').textContent=acc+'%';$('w3').textContent=T.cnt;$('w4').textContent=l?fm(l-sec):fm(sec);
+ var st=0;for(i=n-1;i>=0&&v[i]===T.txt[i];i--)st++;
+ $('tcb').textContent=st>=10?'🔥 Chuỗi đúng x'+st:'';$('tcb').classList.toggle('hot',st>=10);
+ return{w:w,acc:acc,sec:sec};
+}
+function tNew(){
+ clearInterval(T.iv);var v=$('tsel').value,rm=v[0]==='r';
+ T={mode:rm?'r':'one',k:rm?v[1]:'',txt:'',nxt:'',st:0,iv:null,done:false,comp:false,prev:0,cnt:0,okc:0,mis:0,words:0,flag:false};
+ if(rm){T.txt=pick(T.k);T.nxt=pick(T.k)}else T.txt=getTxt();
+ $('ti').value='';$('tc').style.display=v==='c'?'block':'none';$('tnx').textContent=rm?'Câu tiếp theo: '+T.nxt:'';
+ tr('');tstat();$('ti').disabled=!T.txt;if(T.txt&&$('v4').classList.contains('on'))$('ti').focus();rH();
+}
+function nextS(){T.txt=T.nxt;T.nxt=pick(T.k);T.prev=0;T.flag=false;$('ti').value='';var b=$('tbox');b.classList.remove('good');void b.offsetWidth;b.classList.add('good');tr('');$('tnx').textContent='Câu tiếp theo: '+T.nxt}
+function rank(w){return w>=70?'🏆 Huyền thoại':w>=50?'⚡ Cao thủ':w>=35?'🔥 Giỏi':w>=20?'👍 Khá':'🌱 Người mới'}
+function rH(){$('th').textContent=S.best?'Kỷ lục: '+S.best.w+' từ/phút · '+(S.hist||[]).slice(0,5).map(function(h){return h.w}).join(' · ')+' (5 lần gần nhất)':'Chưa có kỷ lục. Hãy gõ xong một bài để lưu nhé.'}
+function tend(){
+ if(T.done)return;T.done=true;clearInterval(T.iv);var r=tstat();$('ti').blur();
+ var rec=!S.best||r.w>S.best.w;if(rec&&r.w>0)S.best={w:r.w};if(r.w>0)S.hist=[{w:r.w,a:r.acc}].concat(S.hist||[]).slice(0,10);save();rH();
+ $('rw').textContent=r.w;$('ra').textContent=r.acc+'%';$('rt').textContent=fm(r.sec);$('rk').textContent=rank(r.w)+(T.mode==='r'?' · '+T.cnt+' câu':'');
+ $('rb').textContent=rec&&r.w>0?'Kỷ lục mới! 🎉':'Kỷ lục của bạn: '+(S.best?S.best.w:0)+' từ/phút';
+ if(r.w>=20)confetti(innerWidth/2,innerHeight*.4,110);$('dr').showModal();
+}
+$('ti').oninput=function(){
+ if(T.done||!T.txt)return;var v=this.value.normalize('NFC').replace(/[\r\n]+/g,'');
+ if(T.mode==='r')v=v.replace(/^\s+/,'');if(!T.comp&&v!==this.value)this.value=v
+ if(!T.st){T.st=Date.now();T.iv=setInterval(function(){tstat();var l=+$('tlim').value;if(l&&(Date.now()-T.st)/1000>=l)tend()},200)}
+ if(!T.comp){
+  if(v.length>T.prev){
+   var c=v[v.length-1];
+   if(c===' '){T.words++;if(v.slice(0,-1).split(' ').pop()!==T.txt.slice(0,v.length-1).split(' ').pop())T.mis++}
+   if(c!==T.txt[v.length-1]){var b=$('tbox');b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake')}
+  }
+  T.prev=v.length;
+ }
+ tr(v);
+ if(!T.comp&&v.length>=T.txt.length){
+  if(T.mode==='r'){
+   if(v===T.txt){if(!T.flag)T.words++;T.cnt++;T.okc+=T.txt.length;nextS()}
+   else if(!T.flag){T.flag=true;T.words++;T.mis++}
+  }else tend();
+ }
+ tstat();
+};
+$('ti').addEventListener('compositionstart',function(){T.comp=true});
+$('ti').addEventListener('compositionend',function(){T.comp=false;$('ti').oninput()});
+$('ti').onpaste=function(e){e.preventDefault();toast('Không dán được, hãy tự gõ nhé ✋')};
+$('ti').onkeydown=function(e){if(e.key==='Escape'){e.preventDefault();tNew()}};
+$('tbox').onclick=function(){$('ti').focus()};
+$('tsel').onchange=tNew;$('tlim').onchange=tNew;$('tnew').onclick=tNew;$('tfin').onclick=tend;
+$('rg2').onclick=function(){$('dr').close();tNew();$('ti').focus()};
+function buildSky(){var h='<div class="orb" style="width:46vmax;height:46vmax;left:-12vmax;top:-10vmax;background:var(--o1)"></div><div class="orb" style="width:38vmax;height:38vmax;right:-10vmax;top:22vh;background:var(--o2);animation-delay:-8s"></div><div class="orb" style="width:42vmax;height:42vmax;left:20vw;bottom:-18vmax;background:var(--o3);animation-delay:-15s"></div><div class="moon"></div><div class="stars">',i;
+ for(i=0;i<70;i++)h+='<i class="star" style="left:'+(Math.random()*100).toFixed(1)+'%;top:'+(Math.random()*75).toFixed(1)+'%;animation-delay:-'+(Math.random()*3).toFixed(2)+'s"></i>';
+ h+='</div>';for(i=0;i<5;i++)h+='<div class="cloud" style="width:'+Math.round(120+Math.random()*140)+'px;top:'+Math.round(8+Math.random()*55)+'%;animation-duration:'+Math.round(70+Math.random()*70)+'s;animation-delay:-'+Math.round(Math.random()*90)+'s"></div>';
+ $('sky').innerHTML=h}
+function setTheme(t){document.documentElement.setAttribute('data-theme',t);S.theme=t;save();[].forEach.call($('themes').children,function(b){b.setAttribute('aria-pressed',b.dataset.t===t)});if(typeof bgDraw==='function')bgDraw()}
+$('themes').onclick=function(e){var b=e.target.closest('button');if(b)setTheme(b.dataset.t)};
+var pw=['Gâu gâu! Học bài nào 🐾','Cún Con cổ vũ bạn nhé! 🐶','Nghỉ một chút rồi học tiếp nha 🦴','Gâu! Bạn giỏi lắm! ⭐'];
+$('pup').onclick=function(){var p=this;p.classList.remove('hop');void p.offsetWidth;p.classList.add('hop');toast(pw[Math.floor(Math.random()*pw.length)])};
+buildSky();setTheme(S.theme||'night');
+
+/* ===== nền động (canvas) ===== */
+var RM=matchMedia('(prefers-reduced-motion:reduce)').matches,bg=$('bgc'),g=bg.getContext('2d'),W=0,H=0,DPR=Math.min(window.devicePixelRatio||1,1.5),PS=[],SH=null,mx=.5,tm=0;
+var PAL={night:{h:['#2d2460','#211a4a','#150f33'],p:'255,236,170',m:'drift'},sunset:{h:['#9a416c','#6a2c5c','#3d1b48'],p:'255,205,150',m:'rise'},forest:{h:['#226650','#164a3f','#0b2e29'],p:'200,255,150',m:'fly'},day:{h:['#a6dcae','#84c99a','#62b186'],p:'255,255,255',m:'petal'}};
+function rs(){W=innerWidth;H=innerHeight;bg.width=W*DPR;bg.height=H*DPR;bg.style.width=W+'px';bg.style.height=H+'px';g.setTransform(DPR,0,0,DPR,0,0);PS=[];for(var i=0;i<(W<700?28:52);i++)PS.push({x:Math.random()*W,y:Math.random()*H,r:1+Math.random()*2.4,v:.2+Math.random()*.5,ph:Math.random()*6.28,a:.35+Math.random()*.55})}
+function draw(t){
+ tm=t/1000;g.clearRect(0,0,W,H);var th=document.documentElement.getAttribute('data-theme')||'night',P=PAL[th]||PAL.night,i,p;
+ for(i=0;i<PS.length;i++){p=PS[i];
+  if(P.m==='rise'){p.y-=p.v;p.x+=Math.sin(tm+p.ph)*.3;if(p.y<-10){p.y=H+10;p.x=Math.random()*W}}
+  else if(P.m==='fly'){p.x+=Math.sin(tm*.7+p.ph)*.6;p.y+=Math.cos(tm*.5+p.ph*2)*.4}
+  else if(P.m==='petal'){p.x+=p.v*1.3;p.y+=Math.sin(tm+p.ph)*.4+.15;if(p.x>W+10){p.x=-10;p.y=Math.random()*H*.8}}
+  else{p.x+=p.v*.35;p.y+=Math.sin(tm*.4+p.ph)*.12;if(p.x>W+10)p.x=-10}
+  var al=p.a*(P.m==='fly'?.5+.5*Math.sin(tm*2+p.ph):1),R=p.r*(P.m==='fly'?3.4:P.m==='rise'?2.6:1.8),gr=g.createRadialGradient(p.x,p.y,0,p.x,p.y,R*3);
+  gr.addColorStop(0,'rgba('+P.p+','+al+')');gr.addColorStop(1,'rgba('+P.p+',0)');g.fillStyle=gr;g.beginPath();g.arc(p.x,p.y,R*3,0,6.283);g.fill();
+ }
+ if(!SH&&th!=='day'&&!RM&&Math.random()<.004)SH={x:W*(.3+Math.random()*.7),y:H*Math.random()*.35,l:0};
+ if(SH){SH.x-=11;SH.y+=4.5;SH.l++;var tl=g.createLinearGradient(SH.x,SH.y,SH.x+90,SH.y-36);tl.addColorStop(0,'rgba(255,255,255,.95)');tl.addColorStop(1,'rgba(255,255,255,0)');g.strokeStyle=tl;g.lineWidth=2;g.beginPath();g.moveTo(SH.x,SH.y);g.lineTo(SH.x+90,SH.y-36);g.stroke();if(SH.l>70||SH.x<-100)SH=null}
+ for(var k=0;k<3;k++){var base=H*(.8+k*.065),amp=20+k*9,off=(mx-.5)*(16+k*18);g.beginPath();g.moveTo(-40,H);for(var x=-40;x<=W+40;x+=24){g.lineTo(x+off,base+Math.sin(x*.004+tm*(.08+k*.04)+k*2)*amp+Math.sin(x*.012+k)*amp*.4)}g.lineTo(W+40,H);g.closePath();g.fillStyle=P.h[k];g.globalAlpha=.92;g.fill();g.globalAlpha=1}
+ if(!RM)requestAnimationFrame(draw)
+}
+var bgDraw=function(){if(RM)draw(0)};
+rs();addEventListener('resize',function(){rs();bgDraw()});
+document.addEventListener('pointermove',function(e){mx=e.clientX/innerWidth});
+requestAnimationFrame(draw);
+/* ===== hiệu ứng click ===== */
+var FXE=['🐾','✨','⭐','💖','🦴','🌟','💫','🎉'],lt=0;
+function fxEl(c,x,y,css,ms){var el=document.createElement('span');el.className=c;el.style.cssText='left:'+x+'px;top:'+y+'px;'+(css||'');document.body.appendChild(el);setTimeout(function(){el.remove()},ms);return el}
+document.addEventListener('pointerdown',function(e){
+ if(RM)return;fxEl('fxf',0,0,'--fx:'+e.clientX+'px;--fy:'+e.clientY+'px',520);[0,110,230].forEach(function(d,k){fxEl('fxr',e.clientX,e.clientY,'animation-delay:'+d+'ms;border-color:'+COL[k*2]+';color:'+COL[k*2],900)});
+ for(var i=0;i<20;i++){var a=Math.random()*6.283,d=60+Math.random()*130;fxEl('fxp',e.clientX,e.clientY,'--dx:'+(Math.cos(a)*d).toFixed(0)+'px;--dy:'+(Math.sin(a)*d).toFixed(0)+'px;--r:'+Math.round(Math.random()*180-90)+'deg;color:'+COL[i%6],1000).textContent=(i%2?FXE[i%FXE.length]:'●')}
+});
+document.addEventListener('pointermove',function(e){
+ if(RM||e.pointerType!=='mouse')return;var n=Date.now();if(n-lt<45)return;lt=n;
+ var c=COL[Math.floor(Math.random()*6)];fxEl('trail',e.clientX,e.clientY,'background:'+c+';box-shadow:0 0 10px '+c,620);
+});
+/* ===== luyện code ===== */
+var CODE={
+java:[
+["Bubble Sort","Đổi chỗ các cặp phần tử kề nhau nếu sai thứ tự, lặp lại đến khi mảng đã sắp xếp. Độ phức tạp O(n²).",String.raw`static void bubbleSort(int[] a) {
+  int n = a.length;
+  for (int i = 0; i < n - 1; i++) {
+    for (int j = 0; j < n - i - 1; j++) {
+      if (a[j] > a[j + 1]) {
+        int t = a[j];
+        a[j] = a[j + 1];
+        a[j + 1] = t;
+      }
+    }
+  }
+}`],
+["Insertion Sort","Chèn từng phần tử vào đúng vị trí trong phần đã sắp xếp phía trước. O(n²), nhanh với mảng gần như đã sắp xếp.",String.raw`static void insertionSort(int[] a) {
+  for (int i = 1; i < a.length; i++) {
+    int key = a[i], j = i - 1;
+    while (j >= 0 && a[j] > key) {
+      a[j + 1] = a[j];
+      j--;
+    }
+    a[j + 1] = key;
+  }
+}`],
+["Binary Search","Tìm trong mảng đã sắp xếp bằng cách chia đôi phạm vi tìm kiếm. Độ phức tạp O(log n).",String.raw`static int binarySearch(int[] a, int x) {
+  int lo = 0, hi = a.length - 1;
+  while (lo <= hi) {
+    int mid = (lo + hi) / 2;
+    if (a[mid] == x) return mid;
+    if (a[mid] < x) lo = mid + 1;
+    else hi = mid - 1;
+  }
+  return -1;
+}`],
+["Ước chung lớn nhất (Euclid)","Lấy số lớn chia dư số nhỏ, lặp lại đến khi dư bằng 0. Độ phức tạp O(log n).",String.raw`static int gcd(int a, int b) {
+  while (b != 0) {
+    int r = a % b;
+    a = b;
+    b = r;
+  }
+  return a;
+}`],
+["Fibonacci (vòng lặp)","Mỗi số bằng tổng hai số đứng trước. Dùng vòng lặp nên chỉ O(n), không bị lặp lại phép tính như đệ quy.",String.raw`static long fib(int n) {
+  if (n < 2) return n;
+  long a = 0, b = 1;
+  for (int i = 2; i <= n; i++) {
+    long c = a + b;
+    a = b;
+    b = c;
+  }
+  return b;
+}`],
+["Kiểm tra số nguyên tố","Chỉ cần thử chia cho các số từ 2 đến căn bậc hai của n. Độ phức tạp O(√n).",String.raw`static boolean isPrime(int n) {
+  if (n < 2) return false;
+  for (int i = 2; i * i <= n; i++) {
+    if (n % i == 0) return false;
+  }
+  return true;
+}`],
+["Giai thừa (đệ quy)","n! = n × (n - 1)!, dừng khi n nhỏ hơn hoặc bằng 1. Độ phức tạp O(n).",String.raw`static long factorial(int n) {
+  if (n <= 1) return 1;
+  return n * factorial(n - 1);
+}`]
+],
+c:[
+["Bubble Sort","Đổi chỗ các cặp phần tử kề nhau nếu sai thứ tự. Độ phức tạp O(n²).",String.raw`void bubbleSort(int a[], int n) {
+  for (int i = 0; i < n - 1; i++) {
+    for (int j = 0; j < n - i - 1; j++) {
+      if (a[j] > a[j + 1]) {
+        int t = a[j];
+        a[j] = a[j + 1];
+        a[j + 1] = t;
+      }
+    }
+  }
+}`],
+["Selection Sort","Mỗi lượt chọn phần tử nhỏ nhất của phần còn lại rồi đưa về đầu. Độ phức tạp O(n²).",String.raw`void selectionSort(int a[], int n) {
+  for (int i = 0; i < n - 1; i++) {
+    int min = i;
+    for (int j = i + 1; j < n; j++) {
+      if (a[j] < a[min]) min = j;
+    }
+    int t = a[i];
+    a[i] = a[min];
+    a[min] = t;
+  }
+}`],
+["Linear Search","Duyệt lần lượt từng phần tử cho đến khi tìm thấy. Độ phức tạp O(n).",String.raw`int linearSearch(int a[], int n, int x) {
+  for (int i = 0; i < n; i++) {
+    if (a[i] == x) return i;
+  }
+  return -1;
+}`],
+["Binary Search","Chia đôi phạm vi tìm kiếm trên mảng đã sắp xếp. Độ phức tạp O(log n).",String.raw`int binarySearch(int a[], int n, int x) {
+  int lo = 0, hi = n - 1;
+  while (lo <= hi) {
+    int mid = lo + (hi - lo) / 2;
+    if (a[mid] == x) return mid;
+    if (a[mid] < x) lo = mid + 1;
+    else hi = mid - 1;
+  }
+  return -1;
+}`],
+["Ước chung lớn nhất (đệ quy)","gcd(a, b) = gcd(b, a % b), dừng khi b bằng 0.",String.raw`int gcd(int a, int b) {
+  if (b == 0) return a;
+  return gcd(b, a % b);
+}`],
+["Số nguyên tố (có hàm main)","Thử chia n cho các số đến căn bậc hai của n. Nhớ #include <stdio.h> để dùng printf.",String.raw`#include <stdio.h>
+
+int main() {
+  int n = 29, ok = n > 1;
+  for (int i = 2; i * i <= n; i++) {
+    if (n % i == 0) ok = 0;
+  }
+  printf("%d %s\n", n, ok ? "prime" : "not prime");
+  return 0;
+}`]
+],
+web:[
+["Nút hover (HTML + CSS)","Dùng :hover và transition để nút phóng to mượt khi rê chuột.",String.raw`<button class="btn">Click me</button>
+<style>
+  .btn {
+    padding: 12px 24px;
+    border: 0;
+    border-radius: 12px;
+    background: #4f8cff;
+    color: white;
+    transition: transform .2s;
+  }
+  .btn:hover { transform: scale(1.1); }
+</style>`],
+["Bộ đếm (HTML + JavaScript)","Bắt sự kiện click, tăng biến đếm rồi cập nhật nội dung trên trang.",String.raw`<h1 id="n">0</h1>
+<button id="b">Add</button>
+<script>
+  let n = 0;
+  document.getElementById("b").onclick = () => {
+    n++;
+    document.getElementById("n").textContent = n;
+  };
+</@@script>`],
+["FizzBuzz (JavaScript)","In 1 đến 15, chia hết cho 3 in Fizz, chia hết cho 5 in Buzz, chia hết cho cả hai in FizzBuzz.",String.raw`<pre id="out"></pre>
+<script>
+  let s = "";
+  for (let i = 1; i <= 15; i++) {
+    if (i % 15 == 0) s += "FizzBuzz\n";
+    else if (i % 3 == 0) s += "Fizz\n";
+    else if (i % 5 == 0) s += "Buzz\n";
+    else s += i + "\n";
+  }
+  document.getElementById("out").textContent = s;
+</@@script>`],
+["Bubble Sort (JavaScript)","Sắp xếp mảng bằng cách đổi chỗ các cặp kề nhau, dùng cú pháp hoán đổi của ES6. O(n²).",String.raw`<p id="r"></p>
+<script>
+  const a = [5, 2, 9, 1, 7];
+  for (let i = 0; i < a.length; i++) {
+    for (let j = 0; j < a.length - i - 1; j++) {
+      if (a[j] > a[j + 1]) [a[j], a[j + 1]] = [a[j + 1], a[j]];
+    }
+  }
+  r.textContent = a.join(", ");
+</@@script>`],
+["Chuỗi đối xứng (JavaScript)","Một chuỗi đối xứng khi đọc xuôi và ngược giống nhau. Tách thành mảng ký tự, đảo ngược rồi ghép lại để so sánh.",String.raw`<p id="r"></p>
+<script>
+  function isPalin(s) {
+    return s === s.split("").reverse().join("");
+  }
+  r.textContent = isPalin("level") + " / " + isPalin("hello");
+</@@script>`]
+]};
+/* ===== thư viện bài mới ===== */
+function A(l,n,d,c){CODE[l].push([n,d,c])}
+A("java","Mảng 1D · Tìm max","Duyệt từng phần tử, giữ lại giá trị lớn nhất. O(n).",String.raw`static int max(int[] a) {
+  int m = a[0];
+  for (int x : a) {
+    if (x > m) m = x;
+  }
+  return m;
+}`);
+A("java","Mảng 1D · Đảo ngược","Dùng hai chỉ số đầu và cuối, đổi chỗ rồi tiến vào giữa.",String.raw`static void reverse(int[] a) {
+  for (int i = 0, j = a.length - 1; i < j; i++, j--) {
+    int t = a[i];
+    a[i] = a[j];
+    a[j] = t;
+  }
+}`);
+A("java","Mảng 2D · Tổng ma trận","Hai vòng for lồng nhau: hàng ngoài, cột trong.",String.raw`static int sum2D(int[][] m) {
+  int s = 0;
+  for (int i = 0; i < m.length; i++) {
+    for (int j = 0; j < m[i].length; j++) {
+      s += m[i][j];
+    }
+  }
+  return s;
+}`);
+A("java","Mảng 2D · Chuyển vị","Hàng thành cột: t[j][i] = m[i][j].",String.raw`static int[][] transpose(int[][] m) {
+  int[][] t = new int[m[0].length][m.length];
+  for (int i = 0; i < m.length; i++) {
+    for (int j = 0; j < m[0].length; j++) {
+      t[j][i] = m[i][j];
+    }
+  }
+  return t;
+}`);
+A("java","Mảng 2D · Nhân ma trận","c[i][j] là tổng a[i][k] × b[k][j]. Ba vòng lặp, O(n³).",String.raw`static int[][] mul(int[][] a, int[][] b) {
+  int n = a.length, m = b[0].length, p = b.length;
+  int[][] c = new int[n][m];
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+      for (int k = 0; k < p; k++) {
+        c[i][j] += a[i][k] * b[k][j];
+      }
+    }
+  }
+  return c;
+}`);
+A("java","Selection Sort","Mỗi lượt chọn phần tử nhỏ nhất đưa về đầu. O(n²).",String.raw`static void selectionSort(int[] a) {
+  for (int i = 0; i < a.length - 1; i++) {
+    int min = i;
+    for (int j = i + 1; j < a.length; j++) {
+      if (a[j] < a[min]) min = j;
+    }
+    int t = a[i];
+    a[i] = a[min];
+    a[min] = t;
+  }
+}`);
+A("java","Merge Sort","Chia đôi, sắp xếp từng nửa rồi trộn lại. O(n log n).",String.raw`static void mergeSort(int[] a, int l, int r) {
+  if (l >= r) return;
+  int m = (l + r) / 2;
+  mergeSort(a, l, m);
+  mergeSort(a, m + 1, r);
+  int[] t = new int[r - l + 1];
+  int i = l, j = m + 1, k = 0;
+  while (i <= m && j <= r) t[k++] = a[i] <= a[j] ? a[i++] : a[j++];
+  while (i <= m) t[k++] = a[i++];
+  while (j <= r) t[k++] = a[j++];
+  for (k = 0; k < t.length; k++) a[l + k] = t[k];
+}`);
+A("java","Quick Sort","Chọn chốt, đưa nhỏ hơn sang trái, lớn hơn sang phải rồi đệ quy. Trung bình O(n log n).",String.raw`static void quickSort(int[] a, int lo, int hi) {
+  if (lo >= hi) return;
+  int p = a[hi], i = lo;
+  for (int j = lo; j < hi; j++) {
+    if (a[j] < p) {
+      int t = a[i];
+      a[i] = a[j];
+      a[j] = t;
+      i++;
+    }
+  }
+  int t = a[i];
+  a[i] = a[hi];
+  a[hi] = t;
+  quickSort(a, lo, i - 1);
+  quickSort(a, i + 1, hi);
+}`);
+A("java","Cấu trúc dữ liệu · Stack","Vào sau ra trước (LIFO), cài đặt bằng mảng và biến top.",String.raw`class Stack {
+  int[] d = new int[100];
+  int top = -1;
+  void push(int x) { d[++top] = x; }
+  int pop() { return d[top--]; }
+  boolean isEmpty() { return top < 0; }
+}`);
+A("java","Cấu trúc dữ liệu · Danh sách liên kết","Mỗi nút giữ giá trị và con trỏ tới nút kế tiếp.",String.raw`class Node {
+  int val;
+  Node next;
+  Node(int v) { val = v; }
+}
+class MyList {
+  Node head;
+  void addFirst(int v) {
+    Node n = new Node(v);
+    n.next = head;
+    head = n;
+  }
+  void print() {
+    for (Node p = head; p != null; p = p.next) {
+      System.out.println(p.val);
+    }
+  }
+}`);
+A("java","Chuỗi · Đối xứng","Hai chỉ số từ hai đầu so sánh ký tự.",String.raw`static boolean isPalin(String s) {
+  int i = 0, j = s.length() - 1;
+  while (i < j) {
+    if (s.charAt(i++) != s.charAt(j--)) return false;
+  }
+  return true;
+}`);
+A("java","Đệ quy · Tháp Hà Nội","Chuyển n - 1 đĩa sang cột phụ, đĩa lớn sang đích, rồi chuyển n - 1 đĩa về đích. 2ⁿ - 1 bước.",String.raw`static void hanoi(int n, char a, char b, char c) {
+  if (n == 0) return;
+  hanoi(n - 1, a, c, b);
+  System.out.println(a + " -> " + c);
+  hanoi(n - 1, b, a, c);
+}`);
+A("java","HashMap · Đếm tần suất","Dùng bảng băm đếm số lần xuất hiện của mỗi phần tử. O(n).",String.raw`static Map<Integer, Integer> count(int[] a) {
+  Map<Integer, Integer> m = new HashMap<>();
+  for (int x : a) m.merge(x, 1, Integer::sum);
+  return m;
+}`);
+A("c","Mảng 1D · Tìm max","Duyệt mảng, giữ giá trị lớn nhất.",String.raw`int maxArr(int a[], int n) {
+  int m = a[0];
+  for (int i = 1; i < n; i++) {
+    if (a[i] > m) m = a[i];
+  }
+  return m;
+}`);
+A("c","Mảng 1D · Đảo ngược","Đổi chỗ phần tử đối xứng qua giữa mảng.",String.raw`void reverse(int a[], int n) {
+  for (int i = 0; i < n / 2; i++) {
+    int t = a[i];
+    a[i] = a[n - 1 - i];
+    a[n - 1 - i] = t;
+  }
+}`);
+A("c","Mảng 2D · Tổng ma trận","Mảng 2D trong C phải khai báo số cột khi truyền vào hàm.",String.raw`int sum2D(int m[][3], int rows) {
+  int s = 0;
+  for (int i = 0; i < rows; i++) {
+    for (int j = 0; j < 3; j++) {
+      s += m[i][j];
+    }
+  }
+  return s;
+}`);
+A("c","Mảng 2D · Chuyển vị","Ma trận vuông 3x3: đổi chỗ m[i][j] và m[j][i].",String.raw`void transpose(int m[3][3]) {
+  for (int i = 0; i < 3; i++) {
+    for (int j = i + 1; j < 3; j++) {
+      int t = m[i][j];
+      m[i][j] = m[j][i];
+      m[j][i] = t;
+    }
+  }
+}`);
+A("c","Insertion Sort","Chèn từng phần tử vào đúng chỗ trong phần đã sắp xếp. O(n²).",String.raw`void insertionSort(int a[], int n) {
+  for (int i = 1; i < n; i++) {
+    int key = a[i], j = i - 1;
+    while (j >= 0 && a[j] > key) {
+      a[j + 1] = a[j];
+      j--;
+    }
+    a[j + 1] = key;
+  }
+}`);
+A("c","Quick Sort","Phân hoạch quanh chốt rồi đệ quy hai nửa.",String.raw`void quickSort(int a[], int lo, int hi) {
+  if (lo >= hi) return;
+  int p = a[hi], i = lo;
+  for (int j = lo; j < hi; j++) {
+    if (a[j] < p) {
+      int t = a[i];
+      a[i] = a[j];
+      a[j] = t;
+      i++;
+    }
+  }
+  int t = a[i];
+  a[i] = a[hi];
+  a[hi] = t;
+  quickSort(a, lo, i - 1);
+  quickSort(a, i + 1, hi);
+}`);
+A("c","Con trỏ · Hoán đổi","Truyền địa chỉ để hàm thay đổi được biến gốc.",String.raw`void swap(int *a, int *b) {
+  int t = *a;
+  *a = *b;
+  *b = t;
+}`);
+A("c","Chuỗi · Đảo ngược","Chuỗi C kết thúc bằng ký tự '\\0', dùng strlen để lấy độ dài.",String.raw`#include <string.h>
+
+void reverseStr(char s[]) {
+  int n = strlen(s);
+  for (int i = 0; i < n / 2; i++) {
+    char t = s[i];
+    s[i] = s[n - 1 - i];
+    s[n - 1 - i] = t;
+  }
+}`);
+A("c","struct · Sinh viên","struct gom nhiều kiểu dữ liệu thành một kiểu mới.",String.raw`#include <stdio.h>
+
+struct Student {
+  char name[30];
+  int age;
+  float gpa;
+};
+
+int main() {
+  struct Student s = {"An", 17, 8.5};
+  printf("%s %d %.1f\n", s.name, s.age, s.gpa);
+  return 0;
+}`);
+A("c","Danh sách liên kết","Cấp phát nút mới bằng malloc rồi nối vào đầu danh sách.",String.raw`#include <stdlib.h>
+
+struct Node {
+  int val;
+  struct Node *next;
+};
+
+struct Node *push(struct Node *head, int v) {
+  struct Node *n = malloc(sizeof(struct Node));
+  n->val = v;
+  n->next = head;
+  return n;
+}`);
+A("c","Stack bằng mảng","LIFO: push tăng top, pop giảm top.",String.raw`int st[100], top = -1;
+
+void push(int x) { st[++top] = x; }
+int pop() { return st[top--]; }
+int empty() { return top < 0; }`);
+A("c","Sàng Eratosthenes","Đánh dấu bội số của mỗi số nguyên tố. O(n log log n).",String.raw`#include <stdio.h>
+
+void sieve(int n) {
+  int p[1001] = {0};
+  for (int i = 2; i * i <= n; i++) {
+    if (!p[i]) {
+      for (int j = i * i; j <= n; j += i) p[j] = 1;
+    }
+  }
+  for (int i = 2; i <= n; i++) {
+    if (!p[i]) printf("%d ", i);
+  }
+}`);
+A("web","Mảng JS · map filter reduce","Ba hàm xử lý mảng quan trọng nhất của JavaScript.",String.raw`<p id="r"></p>
+<script>
+  const a = [1, 2, 3, 4, 5, 6];
+  const sq = a.map(x => x * x);
+  const ev = sq.filter(x => x % 2 == 0);
+  const sum = ev.reduce((s, x) => s + x, 0);
+  r.textContent = sq + " | " + ev + " | " + sum;
+</@@script>`);
+A("web","Mảng 2D · Vẽ bảng","Mảng của mảng, duyệt hai lớp để tạo bảng HTML.",String.raw`<table id="t" border="1"></table>
+<script>
+  const m = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+  for (const row of m) {
+    const tr = t.insertRow();
+    for (const v of row) tr.insertCell().textContent = v;
+  }
+</@@script>`);
+A("web","DOM · Danh sách việc cần làm","Tạo phần tử, thêm vào trang, bấm vào để xóa.",String.raw`<input id="i"><button id="b">Add</button>
+<ul id="l"></ul>
+<script>
+  b.onclick = () => {
+    const li = document.createElement("li");
+    li.textContent = i.value;
+    li.onclick = () => li.remove();
+    l.appendChild(li);
+    i.value = "";
+  };
+</@@script>`);
+A("web","CSS · Flexbox căn giữa","Flexbox căn giữa nội dung theo cả hai chiều.",String.raw`<div class="box"><p>Center</p></div>
+<style>
+  .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background: #cde;
+  }
+</style>`);
+A("web","CSS · Grid lưới","Chia lưới 2 cột bằng nhau với khoảng cách 8px.",String.raw`<div class="g"><b>1</b><b>2</b><b>3</b><b>4</b></div>
+<style>
+  .g {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .g b { background: #fc8; padding: 12px; text-align: center; }
+</style>`);
+A("web","CSS · Animation keyframes","Quả bóng nảy lên xuống nhờ @keyframes và alternate.",String.raw`<div class="ball"></div>
+<style>
+  .ball {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: tomato;
+    animation: jump 1s infinite alternate;
+  }
+  @keyframes jump { to { transform: translateY(60px); } }
+</style>`);
+A("web","JS · Binary Search","Tìm kiếm nhị phân trên mảng đã sắp xếp. O(log n).",String.raw`<p id="r"></p>
+<script>
+  function bs(a, x) {
+    let lo = 0, hi = a.length - 1;
+    while (lo <= hi) {
+      const mid = Math.floor((lo + hi) / 2);
+      if (a[mid] == x) return mid;
+      if (a[mid] < x) lo = mid + 1;
+      else hi = mid - 1;
+    }
+    return -1;
+  }
+  r.textContent = bs([1, 3, 5, 7, 9], 7);
+</@@script>`);
+A("web","JS · Quick Sort","Đệ quy: nhỏ hơn chốt, chốt, lớn hơn hoặc bằng chốt.",String.raw`<p id="r"></p>
+<script>
+  function qs(a) {
+    if (a.length < 2) return a;
+    const p = a[0], rest = a.slice(1);
+    return [...qs(rest.filter(x => x < p)), p, ...qs(rest.filter(x => x >= p))];
+  }
+  r.textContent = qs([5, 2, 9, 1, 7]).join(", ");
+</@@script>`);
+A("web","JS · Stack và Queue","Stack dùng push/pop, Queue dùng push/shift.",String.raw`<p id="r"></p>
+<script>
+  const st = [];
+  st.push(1); st.push(2);
+  const top = st.pop();
+  const q = [];
+  q.push(1); q.push(2);
+  const first = q.shift();
+  r.textContent = top + " " + first;
+</@@script>`);
+A("web","JS · Class và đối tượng","Class đóng gói dữ liệu và hành vi.",String.raw`<p id="r"></p>
+<script>
+  class Dog {
+    constructor(name) { this.name = name; }
+    bark() { return this.name + " says woof"; }
+  }
+  r.textContent = new Dog("Bong").bark();
+</@@script>`);
+/* ===== hiệu ứng nghiêng 3D ===== */
+var TL=null;
+document.addEventListener('pointermove',function(e){
+ if(RM||e.pointerType!=='mouse')return;var c=e.target.closest&&e.target.closest('.day,.st,.note,.now');
+ if(TL&&TL!==c)TL.style.transform='';TL=c;if(!c)return;
+ var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+ c.style.transform='perspective(700px) rotateX('+(-y*8).toFixed(1)+'deg) rotateY('+(x*10).toFixed(1)+'deg)';
+});
+A("java","Cơ bản · Tổng chữ số","Lấy chữ số cuối bằng % 10, bỏ nó bằng / 10.",String.raw`static int digitSum(int n) {
+  int s = 0;
+  while (n > 0) {
+    s += n % 10;
+    n /= 10;
+  }
+  return s;
+}`);
+A("java","Cơ bản · Lũy thừa nhanh","Bình phương cơ số, chia đôi số mũ. O(log n).",String.raw`static long power(long a, int n) {
+  long r = 1;
+  while (n > 0) {
+    if (n % 2 == 1) r *= a;
+    a *= a;
+    n /= 2;
+  }
+  return r;
+}`);
+A("java","Mảng 1D · Tổng tiền tố","p[i + 1] là tổng i + 1 phần tử đầu, giúp tính tổng đoạn trong O(1).",String.raw`static int[] prefix(int[] a) {
+  int[] p = new int[a.length + 1];
+  for (int i = 0; i < a.length; i++) {
+    p[i + 1] = p[i] + a[i];
+  }
+  return p;
+}`);
+A("java","Tìm kiếm · Linear Search","Duyệt từng phần tử. O(n).",String.raw`static int linearSearch(int[] a, int x) {
+  for (int i = 0; i < a.length; i++) {
+    if (a[i] == x) return i;
+  }
+  return -1;
+}`);
+A("java","Sắp xếp · Counting Sort","Đếm số lần xuất hiện rồi ghi lại theo thứ tự. O(n + k), chỉ dùng cho số nguyên không âm.",String.raw`static void countingSort(int[] a, int max) {
+  int[] c = new int[max + 1];
+  for (int x : a) c[x]++;
+  int k = 0;
+  for (int v = 0; v <= max; v++) {
+    while (c[v]-- > 0) a[k++] = v;
+  }
+}`);
+A("java","Chuỗi · Đếm nguyên âm","Duyệt từng ký tự và kiểm tra có thuộc aeiou không.",String.raw`static int vowels(String s) {
+  int n = 0;
+  for (char c : s.toLowerCase().toCharArray()) {
+    if ("aeiou".indexOf(c) >= 0) n++;
+  }
+  return n;
+}`);
+A("java","Chuỗi · Anagram","Hai chuỗi là anagram khi sắp xếp ký tự xong thì bằng nhau.",String.raw`static boolean anagram(String a, String b) {
+  char[] x = a.toCharArray(), y = b.toCharArray();
+  Arrays.sort(x);
+  Arrays.sort(y);
+  return Arrays.equals(x, y);
+}`);
+A("java","Đệ quy · Fibonacci","fib(n) = fib(n - 1) + fib(n - 2). Chậm, O(2ⁿ), nên chỉ dùng để học.",String.raw`static int fib(int n) {
+  if (n < 2) return n;
+  return fib(n - 1) + fib(n - 2);
+}`);
+A("java","Đệ quy · Đảo chuỗi","Đảo phần còn lại rồi nối ký tự đầu xuống cuối.",String.raw`static String rev(String s) {
+  if (s.length() <= 1) return s;
+  return rev(s.substring(1)) + s.charAt(0);
+}`);
+A("java","Cấu trúc dữ liệu · Queue","Vào trước ra trước (FIFO), cài bằng mảng vòng.",String.raw`class MyQueue {
+  int[] d = new int[100];
+  int head = 0, size = 0;
+  void enqueue(int x) { d[(head + size++) % 100] = x; }
+  int dequeue() {
+    int x = d[head];
+    head = (head + 1) % 100;
+    size--;
+    return x;
+  }
+}`);
+A("java","Cấu trúc dữ liệu · Cây nhị phân tìm kiếm","Nhỏ hơn đi trái, lớn hơn đi phải. Duyệt giữa (inorder) cho ra dãy tăng dần.",String.raw`class BST {
+  class Node {
+    int v;
+    Node l, r;
+    Node(int v) { this.v = v; }
+  }
+  Node root;
+  Node insert(Node n, int x) {
+    if (n == null) return new Node(x);
+    if (x < n.v) n.l = insert(n.l, x);
+    else n.r = insert(n.r, x);
+    return n;
+  }
+  void inorder(Node n) {
+    if (n == null) return;
+    inorder(n.l);
+    System.out.println(n.v);
+    inorder(n.r);
+  }
+}`);
+A("java","Cấu trúc dữ liệu · Min-Heap","Cha luôn nhỏ hơn con. Thêm vào cuối rồi đẩy lên (sift up). O(log n).",String.raw`class MinHeap {
+  int[] h = new int[100];
+  int n = 0;
+  void push(int x) {
+    int i = n++;
+    h[i] = x;
+    while (i > 0 && h[(i - 1) / 2] > h[i]) {
+      int p = (i - 1) / 2, t = h[p];
+      h[p] = h[i];
+      h[i] = t;
+      i = p;
+    }
+  }
+}`);
+A("java","Đồ thị · BFS","Duyệt theo từng lớp bằng hàng đợi. O(V + E).",String.raw`static void bfs(List<List<Integer>> g, int s) {
+  boolean[] seen = new boolean[g.size()];
+  Queue<Integer> q = new LinkedList<>();
+  q.add(s);
+  seen[s] = true;
+  while (!q.isEmpty()) {
+    int u = q.poll();
+    System.out.println(u);
+    for (int v : g.get(u)) {
+      if (!seen[v]) {
+        seen[v] = true;
+        q.add(v);
+      }
+    }
+  }
+}`);
+A("java","Đồ thị · DFS","Đi sâu hết mức rồi quay lui bằng đệ quy. O(V + E).",String.raw`static void dfs(List<List<Integer>> g, int u, boolean[] seen) {
+  seen[u] = true;
+  System.out.println(u);
+  for (int v : g.get(u)) {
+    if (!seen[v]) dfs(g, v, seen);
+  }
+}`);
+A("java","Đồ thị · Dijkstra","Đường đi ngắn nhất từ một đỉnh, cạnh không âm. Dùng hàng đợi ưu tiên.",String.raw`static int[] dijkstra(List<List<int[]>> g, int s) {
+  int[] d = new int[g.size()];
+  Arrays.fill(d, Integer.MAX_VALUE);
+  d[s] = 0;
+  PriorityQueue<int[]> pq = new PriorityQueue<>((x, y) -> x[1] - y[1]);
+  pq.add(new int[]{s, 0});
+  while (!pq.isEmpty()) {
+    int[] cur = pq.poll();
+    int u = cur[0];
+    if (cur[1] > d[u]) continue;
+    for (int[] e : g.get(u)) {
+      if (d[u] + e[1] < d[e[0]]) {
+        d[e[0]] = d[u] + e[1];
+        pq.add(new int[]{e[0], d[e[0]]});
+      }
+    }
+  }
+  return d;
+}`);
+A("java","Quy hoạch động · Knapsack 0/1","Mỗi đồ vật chọn hoặc không. Duyệt sức chứa từ lớn về nhỏ. O(n × cap).",String.raw`static int knapsack(int[] w, int[] v, int cap) {
+  int[] dp = new int[cap + 1];
+  for (int i = 0; i < w.length; i++) {
+    for (int c = cap; c >= w[i]; c--) {
+      dp[c] = Math.max(dp[c], dp[c - w[i]] + v[i]);
+    }
+  }
+  return dp[cap];
+}`);
+A("java","Quy hoạch động · LCS","Dãy con chung dài nhất của hai chuỗi. O(n × m).",String.raw`static int lcs(String a, String b) {
+  int[][] dp = new int[a.length() + 1][b.length() + 1];
+  for (int i = 1; i <= a.length(); i++) {
+    for (int j = 1; j <= b.length(); j++) {
+      if (a.charAt(i - 1) == b.charAt(j - 1)) dp[i][j] = dp[i - 1][j - 1] + 1;
+      else dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+    }
+  }
+  return dp[a.length()][b.length()];
+}`);
+A("java","Quy hoạch động · Đổi tiền","Số đồng xu ít nhất để tạo đủ số tiền.",String.raw`static int coins(int[] c, int amount) {
+  int[] dp = new int[amount + 1];
+  Arrays.fill(dp, amount + 1);
+  dp[0] = 0;
+  for (int x = 1; x <= amount; x++) {
+    for (int k : c) {
+      if (k <= x) dp[x] = Math.min(dp[x], dp[x - k] + 1);
+    }
+  }
+  return dp[amount] > amount ? -1 : dp[amount];
+}`);
+A("java","OOP · Kế thừa","Lớp con extends lớp cha và ghi đè phương thức bằng @Override.",String.raw`class Animal {
+  String name;
+  Animal(String n) { name = n; }
+  void speak() { System.out.println("..."); }
+}
+class Dog extends Animal {
+  Dog(String n) { super(n); }
+  @Override
+  void speak() { System.out.println(name + ": woof"); }
+}`);
+A("c","Cơ bản · Lũy thừa nhanh","Bình phương cơ số, chia đôi số mũ.",String.raw`long long power(long long a, int n) {
+  long long r = 1;
+  while (n > 0) {
+    if (n % 2 == 1) r *= a;
+    a *= a;
+    n /= 2;
+  }
+  return r;
+}`);
+A("c","Mảng 1D · Xóa phần tử","Dồn các phần tử phía sau lên, giảm n đi 1 (n truyền bằng con trỏ).",String.raw`void removeAt(int a[], int *n, int k) {
+  for (int i = k; i < *n - 1; i++) {
+    a[i] = a[i + 1];
+  }
+  (*n)--;
+}`);
+A("c","Mảng 2D · Nhân ma trận","Nhân hai ma trận vuông 3x3 bằng ba vòng lặp.",String.raw`void mul(int a[3][3], int b[3][3], int c[3][3]) {
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      c[i][j] = 0;
+      for (int k = 0; k < 3; k++) {
+        c[i][j] += a[i][k] * b[k][j];
+      }
+    }
+  }
+}`);
+A("c","Sắp xếp · Merge Sort","Chia đôi, sắp xếp từng nửa rồi trộn. O(n log n).",String.raw`void mergeSort(int a[], int l, int r) {
+  if (l >= r) return;
+  int m = (l + r) / 2;
+  mergeSort(a, l, m);
+  mergeSort(a, m + 1, r);
+  int t[1000], i = l, j = m + 1, k = 0;
+  while (i <= m && j <= r) t[k++] = a[i] <= a[j] ? a[i++] : a[j++];
+  while (i <= m) t[k++] = a[i++];
+  while (j <= r) t[k++] = a[j++];
+  for (k = 0; k < r - l + 1; k++) a[l + k] = t[k];
+}`);
+A("c","Chuỗi · Đếm nguyên âm","Chuyển về chữ thường rồi so sánh với aeiou.",String.raw`#include <ctype.h>
+
+int vowels(char s[]) {
+  int n = 0;
+  for (int i = 0; s[i]; i++) {
+    char c = tolower(s[i]);
+    if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') n++;
+  }
+  return n;
+}`);
+A("c","Chuỗi · Đối xứng","So sánh ký tự từ hai đầu tiến vào giữa.",String.raw`#include <string.h>
+
+int isPalin(char s[]) {
+  int i = 0, j = strlen(s) - 1;
+  while (i < j) {
+    if (s[i++] != s[j--]) return 0;
+  }
+  return 1;
+}`);
+A("c","Đệ quy · Tháp Hà Nội","Chuyển n - 1 đĩa sang cột phụ, đĩa lớn sang đích, rồi n - 1 đĩa về đích.",String.raw`#include <stdio.h>
+
+void hanoi(int n, char a, char b, char c) {
+  if (n == 0) return;
+  hanoi(n - 1, a, c, b);
+  printf("%c -> %c ", a, c);
+  hanoi(n - 1, b, a, c);
+}`);
+A("c","Cấu trúc dữ liệu · Queue","FIFO bằng mảng vòng với head và size.",String.raw`int q[100], head = 0, size = 0;
+
+void enqueue(int x) { q[(head + size++) % 100] = x; }
+int dequeue() {
+  int x = q[head];
+  head = (head + 1) % 100;
+  size--;
+  return x;
+}`);
+A("c","Cấu trúc dữ liệu · Cây nhị phân tìm kiếm","Nhỏ hơn sang trái, lớn hơn sang phải; inorder cho dãy tăng dần.",String.raw`#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+  int v;
+  struct Node *l, *r;
+};
+
+struct Node *insert(struct Node *n, int x) {
+  if (!n) {
+    n = malloc(sizeof(struct Node));
+    n->v = x;
+    n->l = n->r = NULL;
+  } else if (x < n->v) n->l = insert(n->l, x);
+  else n->r = insert(n->r, x);
+  return n;
+}
+
+void inorder(struct Node *n) {
+  if (!n) return;
+  inorder(n->l);
+  printf("%d ", n->v);
+  inorder(n->r);
+}`);
+A("c","Đồ thị · BFS","Duyệt theo lớp bằng hàng đợi, đồ thị lưu bằng ma trận kề.",String.raw`#include <stdio.h>
+
+int g[10][10], seen[10];
+
+void bfs(int s, int n) {
+  int q[10], h = 0, t = 0;
+  q[t++] = s;
+  seen[s] = 1;
+  while (h < t) {
+    int u = q[h++];
+    printf("%d ", u);
+    for (int v = 0; v < n; v++) {
+      if (g[u][v] && !seen[v]) {
+        seen[v] = 1;
+        q[t++] = v;
+      }
+    }
+  }
+}`);
+A("c","Quy hoạch động · Knapsack 0/1","Mỗi đồ vật chọn hoặc không, duyệt sức chứa từ lớn về nhỏ.",String.raw`int knapsack(int w[], int v[], int n, int cap) {
+  int dp[1001] = {0};
+  for (int i = 0; i < n; i++) {
+    for (int c = cap; c >= w[i]; c--) {
+      if (dp[c - w[i]] + v[i] > dp[c]) dp[c] = dp[c - w[i]] + v[i];
+    }
+  }
+  return dp[cap];
+}`);
+A("c","Quy hoạch động · LCS","Dãy con chung dài nhất của hai chuỗi.",String.raw`#include <string.h>
+
+int lcs(char a[], char b[]) {
+  int n = strlen(a), m = strlen(b), dp[101][101] = {0};
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <= m; j++) {
+      if (a[i - 1] == b[j - 1]) dp[i][j] = dp[i - 1][j - 1] + 1;
+      else dp[i][j] = dp[i - 1][j] > dp[i][j - 1] ? dp[i - 1][j] : dp[i][j - 1];
+    }
+  }
+  return dp[n][m];
+}`);
+A("java","Cú pháp Java · Hello World","Mọi chương trình Java bắt đầu từ hàm main nằm trong một class.",String.raw`public class Main {
+  public static void main(String[] args) {
+    System.out.println("Hello, Java!");
+  }
+}`);
+A("java","Cú pháp Java · Biến và kiểu dữ liệu","Các kiểu cơ bản: int, double, char, boolean và String.",String.raw`public class Main {
+  public static void main(String[] args) {
+    int age = 17;
+    double gpa = 8.5;
+    char grade = 'A';
+    boolean ok = true;
+    String name = "An";
+    System.out.println(name + " " + age + " " + gpa + " " + grade + " " + ok);
+  }
+}`);
+A("java","Cú pháp Java · if else và switch","Rẽ nhánh theo điều kiện hoặc theo giá trị cụ thể.",String.raw`static String rank(int s) {
+  if (s >= 8) return "Gioi";
+  else if (s >= 5) return "Kha";
+  else return "Yeu";
+}
+static String day(int d) {
+  switch (d) {
+    case 1: return "Mon";
+    case 2: return "Tue";
+    default: return "Other";
+  }
+}`);
+A("java","Cú pháp Java · Vòng lặp","for khi biết số lần, while khi chưa biết, do-while chạy ít nhất một lần.",String.raw`public class Main {
+  public static void main(String[] args) {
+    for (int i = 1; i <= 3; i++) System.out.println("for " + i);
+    int j = 1;
+    while (j <= 3) {
+      System.out.println("while " + j);
+      j++;
+    }
+    int k = 1;
+    do {
+      System.out.println("do " + k);
+      k++;
+    } while (k <= 3);
+  }
+}`);
+A("java","Cú pháp Java · Nhập dữ liệu Scanner","Scanner đọc dữ liệu từ bàn phím.",String.raw`import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    String s = sc.next();
+    System.out.println(n + " " + s);
+  }
+}`);
+A("java","Cú pháp Java · Phương thức và nạp chồng","Nhiều phương thức cùng tên nhưng khác danh sách tham số (overloading).",String.raw`static int add(int a, int b) { return a + b; }
+static double add(double a, double b) { return a + b; }
+static int add(int a, int b, int c) { return a + b + c; }`);
+A("java","Cú pháp Java · Mảng và for-each","Khai báo mảng 1D, 2D và duyệt bằng for-each.",String.raw`static void demo() {
+  int[] a = {3, 1, 2};
+  int[][] m = new int[2][3];
+  for (int x : a) System.out.println(x);
+  m[1][2] = 5;
+  System.out.println(a.length + " " + m[0].length);
+}`);
+A("java","Chuỗi · StringBuilder","Nối chuỗi nhiều lần nên dùng StringBuilder thay vì cộng chuỗi.",String.raw`static String build() {
+  StringBuilder sb = new StringBuilder();
+  for (int i = 0; i < 5; i++) sb.append(i).append(',');
+  sb.reverse();
+  return sb.toString();
+}`);
+A("java","OOP · Đóng gói","Thuộc tính private, chỉ truy cập qua getter và các phương thức có kiểm tra.",String.raw`class Account {
+  private double balance;
+  public double getBalance() { return balance; }
+  public void deposit(double x) {
+    if (x > 0) balance += x;
+  }
+  public boolean withdraw(double x) {
+    if (x > 0 && x <= balance) {
+      balance -= x;
+      return true;
+    }
+    return false;
+  }
+}`);
+A("java","OOP · Constructor và this","this tham chiếu đối tượng hiện tại, this(...) gọi constructor khác.",String.raw`class Student {
+  String name;
+  int age;
+  Student() { this("Unknown", 0); }
+  Student(String name, int age) {
+    this.name = name;
+    this.age = age;
+  }
+}`);
+A("java","OOP · Đa hình","Biến kiểu cha (Shape) có thể trỏ tới đối tượng con, gọi area() chạy bản của lớp con.",String.raw`class Shape {
+  double area() { return 0; }
+}
+class Circle extends Shape {
+  double r;
+  Circle(double r) { this.r = r; }
+  @Override
+  double area() { return Math.PI * r * r; }
+}
+class Rect extends Shape {
+  double w, h;
+  Rect(double w, double h) { this.w = w; this.h = h; }
+  @Override
+  double area() { return w * h; }
+}`);
+A("java","OOP · Lớp trừu tượng","abstract class không tạo đối tượng được, buộc lớp con cài đặt phương thức abstract.",String.raw`abstract class Employee {
+  String name;
+  Employee(String name) { this.name = name; }
+  abstract double salary();
+  void info() { System.out.println(name + ": " + salary()); }
+}
+class Manager extends Employee {
+  Manager(String n) { super(n); }
+  double salary() { return 2000; }
+}`);
+A("java","OOP · Interface","Interface định nghĩa hợp đồng, một lớp có thể implements nhiều interface.",String.raw`interface Flyable {
+  void fly();
+  default void land() { System.out.println("Landing"); }
+}
+class Bird implements Flyable {
+  public void fly() { System.out.println("Bird flies"); }
+}`);
+A("java","OOP · static và final","static thuộc về lớp, final là hằng số không đổi.",String.raw`class Counter {
+  static int count = 0;
+  static final double PI = 3.14159;
+  Counter() { count++; }
+  static int getCount() { return count; }
+}`);
+A("java","OOP · Enum","Tập hằng số có tên, có thể kèm phương thức.",String.raw`enum Day {
+  MON, TUE, WED;
+  Day next() { return values()[(ordinal() + 1) % values().length]; }
+}`);
+A("java","OOP · Lớp lồng nhau","Inner class truy cập được thành viên của lớp ngoài, static nested thì không cần đối tượng ngoài.",String.raw`class Outer {
+  private int x = 10;
+  class Inner {
+    int get() { return x; }
+  }
+  static class Nested {
+    int one() { return 1; }
+  }
+}`);
+A("java","OOP · toString equals hashCode","Ghi đè ba phương thức của Object để in và so sánh đối tượng đúng ý.",String.raw`class Point {
+  int x, y;
+  Point(int x, int y) { this.x = x; this.y = y; }
+  @Override
+  public String toString() { return "(" + x + ", " + y + ")"; }
+  @Override
+  public boolean equals(Object o) {
+    if (!(o instanceof Point)) return false;
+    Point p = (Point) o;
+    return x == p.x && y == p.y;
+  }
+  @Override
+  public int hashCode() { return Objects.hash(x, y); }
+}`);
+A("java","Collections · ArrayList","Mảng động: thêm, xóa, sắp xếp.",String.raw`static void demo() {
+  List<Integer> a = new ArrayList<>();
+  a.add(3);
+  a.add(1);
+  a.add(2);
+  Collections.sort(a);
+  a.remove(Integer.valueOf(2));
+  System.out.println(a + " " + a.size());
+}`);
+A("java","Collections · HashMap","Lưu cặp khóa và giá trị, duyệt bằng entrySet.",String.raw`static void demo() {
+  Map<String, Integer> m = new HashMap<>();
+  m.put("an", 8);
+  m.put("binh", 9);
+  for (Map.Entry<String, Integer> e : m.entrySet()) {
+    System.out.println(e.getKey() + "=" + e.getValue());
+  }
+}`);
+A("java","Collections · HashSet","Tập hợp không chứa phần tử trùng.",String.raw`static Set<Integer> unique(int[] a) {
+  Set<Integer> s = new HashSet<>();
+  for (int x : a) s.add(x);
+  return s;
+}`);
+A("java","Collections · Stack và Queue có sẵn","ArrayDeque làm stack, LinkedList làm queue.",String.raw`static void demo() {
+  Deque<Integer> st = new ArrayDeque<>();
+  st.push(1);
+  st.push(2);
+  int top = st.pop();
+  Queue<Integer> q = new LinkedList<>();
+  q.offer(1);
+  q.offer(2);
+  int first = q.poll();
+}`);
+A("java","Collections · Comparable và Comparator","Comparable định nghĩa thứ tự mặc định, Comparator định nghĩa thứ tự tùy ý.",String.raw`class Student implements Comparable<Student> {
+  String name;
+  int score;
+  Student(String n, int s) { name = n; score = s; }
+  public int compareTo(Student o) { return Integer.compare(o.score, score); }
+}
+static void demo(List<Student> a) {
+  Collections.sort(a);
+  a.sort(Comparator.comparing(s -> s.name));
+}`);
+A("java","Collections · TreeMap và PriorityQueue","TreeMap giữ khóa có thứ tự, PriorityQueue lấy ra phần tử ưu tiên nhất.",String.raw`static void demo() {
+  TreeMap<Integer, String> t = new TreeMap<>();
+  t.put(3, "c");
+  t.put(1, "a");
+  int first = t.firstKey();
+  PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+  pq.add(5);
+  pq.add(9);
+  int max = pq.poll();
+}`);
+A("java","Ngoại lệ · try catch finally","Bắt lỗi bằng try-catch, finally luôn chạy, tự tạo ngoại lệ bằng extends Exception.",String.raw`class AgeException extends Exception {
+  AgeException(String msg) { super(msg); }
+}
+static void check(int age) throws AgeException {
+  if (age < 0) throw new AgeException("Invalid age");
+}
+static void run() {
+  try {
+    check(-1);
+  } catch (AgeException e) {
+    System.out.println(e.getMessage());
+  } finally {
+    System.out.println("Done");
+  }
+}`);
+A("java","Generics & Lambda · Generics","Lớp dùng được cho nhiều kiểu dữ liệu nhờ tham số kiểu T.",String.raw`class Box<T> {
+  private T value;
+  Box(T v) { value = v; }
+  T get() { return value; }
+}`);
+A("java","Generics & Lambda · Lambda và Stream","Lọc, biến đổi và gom dữ liệu bằng stream.",String.raw`static void demo() {
+  List<Integer> a = Arrays.asList(1, 2, 3, 4, 5, 6);
+  List<Integer> r = a.stream()
+    .filter(x -> x % 2 == 0)
+    .map(x -> x * x)
+    .collect(Collectors.toList());
+  System.out.println(r);
+}`);
+A("java","File I/O · Đọc và ghi file","try-with-resources tự đóng file sau khi dùng xong.",String.raw`static void demo() throws IOException {
+  try (BufferedWriter w = new BufferedWriter(new FileWriter("a.txt"))) {
+    w.write("Hello");
+  }
+  try (BufferedReader r = new BufferedReader(new FileReader("a.txt"))) {
+    System.out.println(r.readLine());
+  }
+}`);
+A("java","Đa luồng · Thread","Tạo luồng bằng extends Thread hoặc lambda, join để chờ luồng xong.",String.raw`class Worker extends Thread {
+  public void run() {
+    System.out.println("Running in " + getName());
+  }
+}
+static void demo() throws InterruptedException {
+  Thread t = new Thread(() -> System.out.println("Hello thread"));
+  t.start();
+  t.join();
+}`);
+A("java","Đa luồng · synchronized","synchronized chỉ cho một luồng vào tại một thời điểm, tránh xung đột dữ liệu.",String.raw`class Counter {
+  private int c = 0;
+  synchronized void inc() { c++; }
+  int get() { return c; }
+}`);
+var M1="Mảng 1D (trên lớp) · ",M2="Mảng 2D (trên lớp) · ",OP="OOP (trên lớp) · ";
+A("java",M1+"TinhTongMang","Cộng dồn từng phần tử vào biến tongmang.",String.raw`public static int TinhTongMang(int[] a) {
+    int tongmang = 0;
+    for (int i = 0; i < a.length; i++) {
+        tongmang += a[i];
+    }
+    return tongmang;
+}`);
+A("java",M1+"TongChan","Chỉ cộng các phần tử chia hết cho 2.",String.raw`public static int TongChan(int[] a) {
+    int tongchan = 0;
+    for (int i = 0; i < a.length; i++) {
+        if (a[i] % 2 == 0) {
+            tongchan += a[i];
+        }
+    }
+    return tongchan;
+}`);
+A("java",M1+"TongLe","Chỉ cộng các phần tử không chia hết cho 2.",String.raw`public static int TongLe(int[] a) {
+    int tongle = 0;
+    for (int i = 0; i < a.length; i++) {
+        if (a[i] % 2 != 0) {
+            tongle += a[i];
+        }
+    }
+    return tongle;
+}`);
+A("java",M1+"DemCacSoChan","Gặp số chẵn thì tăng biến đếm lên 1.",String.raw`public static int DemCacSoChan(int []a) {
+    int demcacsochan = 0;
+    for (int i = 0; i < a.length; i++) {
+        if (a[i] % 2 == 0) {
+            demcacsochan++;
+        }
+    }
+    return demcacsochan;
+}`);
+A("java",M1+"DemCacSoLe","Gặp số lẻ thì tăng biến đếm lên 1.",String.raw`public static int DemCacSoLe(int []a) {
+    int demcacsole = 0;
+    for (int i = 0; i < a.length; i++) {
+        if (a[i] % 2 != 0) {
+            demcacsole++;
+        }
+    }
+    return demcacsole;
+}`);
+A("java",M1+"TimMax","Gán max bằng phần tử đầu, gặp số lớn hơn thì cập nhật.",String.raw`public static int TimMax(int []a) {
+    int max = a[0];
+    for (int i = 0; i < a.length; i++) {
+        if (a[i] > max) {
+            max = a[i];
+        }
+    }
+    return max;
+}`);
+A("java",M1+"TimMin","Gán min bằng phần tử đầu, gặp số nhỏ hơn thì cập nhật.",String.raw`public static int TimMin(int []a) {
+    int min = a[0];
+    for (int i = 0; i < a.length; i++) {
+        if (a[i] < min) {
+            min = a[i];
+        }
+    }
+    return min;
+}`);
+A("java",M1+"InCacSoChan","Hàm void: không trả về giá trị, chỉ in ra màn hình.",String.raw`public static void InCacSoChan(int []a) {
+    System.out.println("Cac so chan: ");
+    for (int i = 0; i < a.length; i++) {
+        if (a[i] % 2 == 0) {
+            System.out.println(a[i] + " ");
+        }
+    }
+}`);
+A("java",M1+"InCacSoLe","Hàm void: in các số lẻ.",String.raw`public static void InCacSoLe(int []a) {
+    System.out.println("Cac so le: ");
+    for (int i = 0; i < a.length; i++) {
+        if (a[i] % 2 != 0) {
+            System.out.println(a[i] + " ");
+        }
+    }
+}`);
+A("java",M1+"TrungBinhCong","Tổng các phần tử chia cho số phần tử, ép kiểu double để không mất phần thập phân.",String.raw`public static double TrungBinhCong(int []a) {
+    int tong = 0;
+    for (int i = 0; i < a.length; i++) {
+        tong += a[i];
+    }
+    return (double) tong / a.length;
+}`);
+A("java",M1+"TimKiemX","Duyệt tuần tự, trả về vị trí đầu tiên của x, không có thì trả về -1.",String.raw`public static int TimKiemX(int []a, int x) {
+    for (int i = 0; i < a.length; i++) {
+        if (a[i] == x) {
+            return i;
+        }
+    }
+    return -1;
+}`);
+A("java",M1+"LaSoNguyenTo và DemSoNguyenTo","Hàm LaSoNguyenTo kiểm tra một số, hàm DemSoNguyenTo gọi lại nó cho từng phần tử.",String.raw`public static boolean LaSoNguyenTo(int n) {
+    if (n < 2) {
+        return false;
+    }
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+public static int DemSoNguyenTo(int []a) {
+    int dem = 0;
+    for (int i = 0; i < a.length; i++) {
+        if (LaSoNguyenTo(a[i])) {
+            dem++;
+        }
+    }
+    return dem;
+}`);
+A("java",M1+"SapXepTang","Sắp xếp tăng dần bằng hai vòng for, đổi chỗ khi sai thứ tự.",String.raw`public static void SapXepTang(int []a) {
+    for (int i = 0; i < a.length - 1; i++) {
+        for (int j = i + 1; j < a.length; j++) {
+            if (a[i] > a[j]) {
+                int tam = a[i];
+                a[i] = a[j];
+                a[j] = tam;
+            }
+        }
+    }
+}`);
+A("java",M1+"NhapMang và XuatMang","Nhập mảng từ bàn phím bằng Scanner, rồi in mảng ra.",String.raw`public static int[] NhapMang(Scanner sc) {
+    System.out.println("Nhap so phan tu: ");
+    int n = sc.nextInt();
+    int[] a = new int[n];
+    for (int i = 0; i < a.length; i++) {
+        System.out.println("Nhap a[" + i + "]: ");
+        a[i] = sc.nextInt();
+    }
+    return a;
+}
+
+public static void XuatMang(int []a) {
+    for (int i = 0; i < a.length; i++) {
+        System.out.print(a[i] + " ");
+    }
+    System.out.println();
+}`);
+A("java",M2+"TongMaTran","Hai vòng for lồng nhau: i chạy hàng, j chạy cột.",String.raw`public static int TongMaTran(int[][] a) {
+    int tong = 0;
+    for (int i = 0; i < a.length; i++) {
+        for (int j = 0; j < a[i].length; j++) {
+            tong += a[i][j];
+        }
+    }
+    return tong;
+}`);
+A("java",M2+"XuatMaTran","In từng hàng trên một dòng.",String.raw`public static void XuatMaTran(int[][] a) {
+    for (int i = 0; i < a.length; i++) {
+        for (int j = 0; j < a[i].length; j++) {
+            System.out.print(a[i][j] + " ");
+        }
+        System.out.println();
+    }
+}`);
+A("java",M2+"TongDuongCheoChinh","Với ma trận vuông, đường chéo chính có hàng bằng cột (i == j).",String.raw`public static int TongDuongCheoChinh(int[][] a) {
+    int tong = 0;
+    for (int i = 0; i < a.length; i++) {
+        tong += a[i][i];
+    }
+    return tong;
+}`);
+A("java",M2+"TimMaxMaTran","Giữ giá trị lớn nhất khi duyệt qua mọi ô của ma trận.",String.raw`public static int TimMaxMaTran(int[][] a) {
+    int max = a[0][0];
+    for (int i = 0; i < a.length; i++) {
+        for (int j = 0; j < a[i].length; j++) {
+            if (a[i][j] > max) {
+                max = a[i][j];
+            }
+        }
+    }
+    return max;
+}`);
+A("java",OP+"NhanVien (abstract)","Lớp cha trừu tượng: thuộc tính, constructor, getter/setter, nhap, xuat, toString và phương thức abstract thucLinh().",String.raw`package ABSTRACT_QLNV;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+public abstract class NhanVien {
+
+    private String maNV;
+    protected String tenNV;
+    Date ngayVaoLam;
+    boolean gioiTinh;
+    String cccD;
+    double luongCB;
+
+    Scanner sc = new Scanner(System.in);
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+    public NhanVien() {
+    }
+
+    public NhanVien(String maNV, String tenNV, Date ngayVaoLam, boolean gioiTinh, String cccD, double luongCB) {
+        this.maNV = maNV;
+        this.tenNV = tenNV;
+        this.ngayVaoLam = ngayVaoLam;
+        this.gioiTinh = gioiTinh;
+        this.cccD = cccD;
+        this.luongCB = luongCB;
+    }
+
+    public String getMaNV() {
+        return maNV;
+    }
+
+    public void setMaNV(String maNV) {
+        this.maNV = maNV;
+    }
+
+    public void nhap() {
+        System.out.println("Nhap ma nhan vien: ");
+        maNV = sc.nextLine();
+
+        System.out.println("Nhap ten nhan vien: ");
+        tenNV = sc.nextLine();
+
+        System.out.println("Nhap ngay vao lam: ");
+        while (true) {
+            try {
+                ngayVaoLam = sdf.parse(sc.nextLine());
+                break;
+            } catch (Exception e) {
+                System.out.println("Nhap sai nhap lai!");
+            }
+        }
+        System.out.println("Nhap gioi tinh(Nam/True,Nu/False): ");
+        gioiTinh = Boolean.parseBoolean(sc.nextLine());
+
+        System.out.println("Nhap cccd: ");
+        cccD = sc.nextLine();
+
+        System.out.println("Nhap luong CB: ");
+        luongCB = Double.parseDouble(sc.nextLine());
+    }
+
+    public void xuat() {
+        System.out.println("Ma nhan vien: " + maNV);
+        System.out.println("Ten nhan vien: " + tenNV);
+        System.out.println("Ngay vao lam: " + sdf.format(ngayVaoLam));
+        System.out.println("Gioi tinh: " + (gioiTinh ? "Nam" : "Nu"));
+        System.out.println("Cccd: " + cccD);
+        System.out.println("Luong co ban: " + luongCB);
+    }
+
+    public int soNgayVaoLam() {
+        long ms = new Date().getTime() - ngayVaoLam.getTime();
+        return (int) (ms / (1000L * 60 * 60 * 24));
+    }
+
+    @Override
+    public String toString() {
+        return "NhanVien{" + "maNV=" + maNV + ", tenNV=" + tenNV + ", luongCB=" + luongCB + ", Thuc linh: " + thucLinh() + '}';
+    }
+
+    public abstract double thucLinh();
+
+}`);
+A("java",OP+"NhanVienVanPhong (kế thừa)","Lớp con extends NhanVien: gọi super.nhap(), ghi đè xuat() và cài đặt thucLinh().",String.raw`package ABSTRACT_QLNV;
+
+public class NhanVienVanPhong extends NhanVien {
+
+    private int soNgayCong;
+
+    public NhanVienVanPhong() {
+    }
+
+    public int getSoNgayCong() {
+        return soNgayCong;
+    }
+
+    public void setSoNgayCong(int soNgayCong) {
+        this.soNgayCong = soNgayCong;
+    }
+
+    @Override
+    public void nhap() {
+        super.nhap();
+        System.out.println("Nhap so ngay cong: ");
+        soNgayCong = Integer.parseInt(sc.nextLine());
+    }
+
+    @Override
+    public void xuat() {
+        super.xuat();
+        System.out.println("So ngay cong: " + soNgayCong);
+        System.out.println("Thuc linh: " + thucLinh());
+    }
+
+    @Override
+    public double thucLinh() {
+        return luongCB / 26 * soNgayCong;
+    }
+
+}`);
+A("java",OP+"NhanVienBanHang (kế thừa)","Thực lĩnh = lương cơ bản cộng 5% doanh số.",String.raw`package ABSTRACT_QLNV;
+
+public class NhanVienBanHang extends NhanVien {
+
+    private double doanhSo;
+
+    public NhanVienBanHang() {
+    }
+
+    public double getDoanhSo() {
+        return doanhSo;
+    }
+
+    public void setDoanhSo(double doanhSo) {
+        this.doanhSo = doanhSo;
+    }
+
+    @Override
+    public void nhap() {
+        super.nhap();
+        System.out.println("Nhap doanh so: ");
+        doanhSo = Double.parseDouble(sc.nextLine());
+    }
+
+    @Override
+    public void xuat() {
+        super.xuat();
+        System.out.println("Doanh so: " + doanhSo);
+        System.out.println("Thuc linh: " + thucLinh());
+    }
+
+    @Override
+    public double thucLinh() {
+        return luongCB + doanhSo * 0.05;
+    }
+
+}`);
+A("java",OP+"Main quản lý nhân viên (đa hình)","Danh sách kiểu cha NhanVien chứa cả hai loại nhân viên con, gọi xuat() và thucLinh() tự chạy đúng bản của từng loại.",String.raw`package ABSTRACT_QLNV;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<NhanVien> ds = new ArrayList<>();
+        while (true) {
+            System.out.println("1. Them nhan vien van phong");
+            System.out.println("2. Them nhan vien ban hang");
+            System.out.println("3. Xuat danh sach");
+            System.out.println("4. Tong thuc linh");
+            System.out.println("0. Thoat");
+            int chon = Integer.parseInt(sc.nextLine());
+            if (chon == 0) {
+                break;
+            }
+            if (chon == 1) {
+                NhanVien nv = new NhanVienVanPhong();
+                nv.nhap();
+                ds.add(nv);
+            } else if (chon == 2) {
+                NhanVien nv = new NhanVienBanHang();
+                nv.nhap();
+                ds.add(nv);
+            } else if (chon == 3) {
+                for (int i = 0; i < ds.size(); i++) {
+                    ds.get(i).xuat();
+                }
+            } else if (chon == 4) {
+                double tong = 0;
+                for (int i = 0; i < ds.size(); i++) {
+                    tong += ds.get(i).thucLinh();
+                }
+                System.out.println("Tong thuc linh: " + tong);
+            }
+        }
+    }
+
+}`);
+var CP="Cú pháp C · ",C1="Mảng 1D (trên lớp) · ",C2="Mảng 2D (trên lớp) · ";
+A("c",CP+"Hello World","Chương trình C bắt đầu từ hàm main, printf để in ra màn hình.",String.raw`#include <stdio.h>
+
+int main() {
+    printf("Hello, C!\n");
+    return 0;
+}`);
+A("c",CP+"Biến và nhập xuất","scanf cần dấu & trước biến, trừ chuỗi.",String.raw`#include <stdio.h>
+
+int main() {
+    int a;
+    float b;
+    char c;
+    printf("Nhap a, b, c: ");
+    scanf("%d %f %c", &a, &b, &c);
+    printf("a=%d b=%.2f c=%c\n", a, b, c);
+    return 0;
+}`);
+A("c",CP+"if else và switch","Rẽ nhánh theo điều kiện hoặc giá trị.",String.raw`#include <stdio.h>
+
+int main() {
+    int diem = 8;
+    if (diem >= 8) {
+        printf("Gioi\n");
+    } else if (diem >= 5) {
+        printf("Kha\n");
+    } else {
+        printf("Yeu\n");
+    }
+    switch (diem) {
+        case 10: printf("Xuat sac\n"); break;
+        default: printf("Binh thuong\n");
+    }
+    return 0;
+}`);
+A("c",CP+"Vòng lặp","for, while và do-while.",String.raw`#include <stdio.h>
+
+int main() {
+    for (int i = 1; i <= 3; i++) printf("for %d\n", i);
+    int j = 1;
+    while (j <= 3) {
+        printf("while %d\n", j);
+        j++;
+    }
+    int k = 1;
+    do {
+        printf("do %d\n", k);
+        k++;
+    } while (k <= 3);
+    return 0;
+}`);
+A("c",CP+"Hàm và nguyên mẫu","Khai báo nguyên mẫu hàm trước main, định nghĩa hàm phía sau.",String.raw`#include <stdio.h>
+
+int TinhTong(int a, int b);
+
+int main() {
+    printf("%d\n", TinhTong(2, 3));
+    return 0;
+}
+
+int TinhTong(int a, int b) {
+    return a + b;
+}`);
+A("c",C1+"NhapMang và XuatMang","Mảng truyền vào hàm kèm số phần tử n.",String.raw`void NhapMang(int a[], int n) {
+    for (int i = 0; i < n; i++) {
+        printf("Nhap a[%d]: ", i);
+        scanf("%d", &a[i]);
+    }
+}
+
+void XuatMang(int a[], int n) {
+    for (int i = 0; i < n; i++) {
+        printf("%d ", a[i]);
+    }
+    printf("\n");
+}`);
+A("c",C1+"TinhTongMang","Cộng dồn từng phần tử.",String.raw`int TinhTongMang(int a[], int n) {
+    int tongmang = 0;
+    for (int i = 0; i < n; i++) {
+        tongmang += a[i];
+    }
+    return tongmang;
+}`);
+A("c",C1+"TongChan và TongLe","Tách tổng theo số chẵn và số lẻ.",String.raw`int TongChan(int a[], int n) {
+    int tongchan = 0;
+    for (int i = 0; i < n; i++) {
+        if (a[i] % 2 == 0) {
+            tongchan += a[i];
+        }
+    }
+    return tongchan;
+}
+
+int TongLe(int a[], int n) {
+    int tongle = 0;
+    for (int i = 0; i < n; i++) {
+        if (a[i] % 2 != 0) {
+            tongle += a[i];
+        }
+    }
+    return tongle;
+}`);
+A("c",C1+"DemCacSoChan và DemCacSoLe","Đếm số phần tử chẵn và lẻ.",String.raw`int DemCacSoChan(int a[], int n) {
+    int dem = 0;
+    for (int i = 0; i < n; i++) {
+        if (a[i] % 2 == 0) {
+            dem++;
+        }
+    }
+    return dem;
+}
+
+int DemCacSoLe(int a[], int n) {
+    int dem = 0;
+    for (int i = 0; i < n; i++) {
+        if (a[i] % 2 != 0) {
+            dem++;
+        }
+    }
+    return dem;
+}`);
+A("c",C1+"TimMax và TimMin","Gán giá trị đầu tiên rồi so sánh với từng phần tử.",String.raw`int TimMax(int a[], int n) {
+    int max = a[0];
+    for (int i = 0; i < n; i++) {
+        if (a[i] > max) {
+            max = a[i];
+        }
+    }
+    return max;
+}
+
+int TimMin(int a[], int n) {
+    int min = a[0];
+    for (int i = 0; i < n; i++) {
+        if (a[i] < min) {
+            min = a[i];
+        }
+    }
+    return min;
+}`);
+A("c",C1+"InCacSoChan và InCacSoLe","Hàm void chỉ in, không trả về giá trị.",String.raw`void InCacSoChan(int a[], int n) {
+    printf("Cac so chan: ");
+    for (int i = 0; i < n; i++) {
+        if (a[i] % 2 == 0) {
+            printf("%d ", a[i]);
+        }
+    }
+    printf("\n");
+}
+
+void InCacSoLe(int a[], int n) {
+    printf("Cac so le: ");
+    for (int i = 0; i < n; i++) {
+        if (a[i] % 2 != 0) {
+            printf("%d ", a[i]);
+        }
+    }
+    printf("\n");
+}`);
+A("c",C1+"SapXepTang và TimKiemX","Sắp xếp bằng hai vòng for; tìm tuần tự trả về vị trí hoặc -1.",String.raw`void SapXepTang(int a[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (a[i] > a[j]) {
+                int tam = a[i];
+                a[i] = a[j];
+                a[j] = tam;
+            }
+        }
+    }
+}
+
+int TimKiemX(int a[], int n, int x) {
+    for (int i = 0; i < n; i++) {
+        if (a[i] == x) {
+            return i;
+        }
+    }
+    return -1;
+}`);
+A("c",C2+"NhapMaTran và XuatMaTran","Ma trận dùng hai chỉ số: hàng i, cột j.",String.raw`void NhapMaTran(int a[100][100], int r, int c) {
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) {
+            printf("Nhap a[%d][%d]: ", i, j);
+            scanf("%d", &a[i][j]);
+        }
+    }
+}
+
+void XuatMaTran(int a[100][100], int r, int c) {
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) {
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
+    }
+}`);
+A("c",C2+"TongMaTran","Cộng mọi phần tử bằng hai vòng for lồng nhau.",String.raw`int TongMaTran(int a[100][100], int r, int c) {
+    int tong = 0;
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) {
+            tong += a[i][j];
+        }
+    }
+    return tong;
+}`);
+A("c",C2+"TongDuongCheoChinh","Ma trận vuông n x n, đường chéo chính có i bằng j.",String.raw`int TongDuongCheoChinh(int a[100][100], int n) {
+    int tong = 0;
+    for (int i = 0; i < n; i++) {
+        tong += a[i][i];
+    }
+    return tong;
+}`);
+A("c","Chuỗi · Các hàm string.h","strcpy chép, strcat nối, strlen đếm độ dài, strcmp so sánh.",String.raw`#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char s[100] = "Hello";
+    char t[100];
+    strcpy(t, s);
+    strcat(t, " C");
+    printf("%s %d %d\n", t, (int)strlen(t), strcmp(s, t));
+    return 0;
+}`);
+A("c","Chuỗi · Nhập chuỗi có khoảng trắng","Dùng fgets thay cho scanf để đọc cả dòng, rồi bỏ ký tự xuống dòng.",String.raw`#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char s[100];
+    printf("Nhap chuoi: ");
+    fgets(s, sizeof(s), stdin);
+    s[strcspn(s, "\n")] = 0;
+    printf("Ban nhap: %s\n", s);
+    return 0;
+}`);
+A("c","struct · Nhập xuất SinhVien","Truyền con trỏ khi cần nhập, dùng -> để truy cập thành viên.",String.raw`#include <stdio.h>
+
+struct SinhVien {
+    char ten[30];
+    int tuoi;
+    float diem;
+};
+
+void NhapSV(struct SinhVien *sv) {
+    printf("Nhap ten: ");
+    scanf("%29s", sv->ten);
+    printf("Nhap tuoi: ");
+    scanf("%d", &sv->tuoi);
+    printf("Nhap diem: ");
+    scanf("%f", &sv->diem);
+}
+
+void XuatSV(struct SinhVien sv) {
+    printf("%s %d %.1f\n", sv.ten, sv.tuoi, sv.diem);
+}`);
+A("c","struct · Mảng sinh viên","Duyệt mảng struct để tìm điểm cao nhất.",String.raw`float DiemCaoNhat(struct SinhVien ds[], int n) {
+    float max = ds[0].diem;
+    for (int i = 1; i < n; i++) {
+        if (ds[i].diem > max) {
+            max = ds[i].diem;
+        }
+    }
+    return max;
+}`);
+A("c","Con trỏ · Con trỏ và mảng","Tên mảng là địa chỉ phần tử đầu, *(p + i) chính là a[i].",String.raw`#include <stdio.h>
+
+int main() {
+    int a[3] = {10, 20, 30};
+    int *p = a;
+    for (int i = 0; i < 3; i++) {
+        printf("%d ", *(p + i));
+    }
+    return 0;
+}`);
+A("c","Con trỏ · Cấp phát động","malloc xin bộ nhớ lúc chạy, nhớ free sau khi dùng xong.",String.raw`#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n = 5;
+    int *a = (int *)malloc(n * sizeof(int));
+    for (int i = 0; i < n; i++) {
+        a[i] = i * i;
+    }
+    for (int i = 0; i < n; i++) {
+        printf("%d ", a[i]);
+    }
+    free(a);
+    return 0;
+}`);
+A("c","File I/O · Đọc và ghi file","fopen mở file, fprintf/fscanf ghi/đọc, fclose đóng file.",String.raw`#include <stdio.h>
+
+int main() {
+    FILE *f = fopen("a.txt", "w");
+    fprintf(f, "%d %d\n", 1, 2);
+    fclose(f);
+    int x, y;
+    f = fopen("a.txt", "r");
+    fscanf(f, "%d %d", &x, &y);
+    fclose(f);
+    printf("%d %d\n", x, y);
+    return 0;
+}`);
+A("web","HTML · Cấu trúc trang","Mọi trang HTML có DOCTYPE, head (tiêu đề, mã hóa) và body (nội dung).",String.raw`<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Trang cua toi</title>
+</head>
+<body>
+  <h1>Xin chao</h1>
+  <p>Day la doan van.</p>
+</body>
+</html>`);
+A("web","HTML · Danh sách và liên kết","ul là danh sách không thứ tự, ol có thứ tự, a là liên kết.",String.raw`<h2>Mon hoc</h2>
+<ul>
+  <li>Toan</li>
+  <li>Van</li>
+</ul>
+<ol>
+  <li>Buoc 1</li>
+  <li>Buoc 2</li>
+</ol>
+<a href="https://example.com">Lien ket</a>`);
+A("web","HTML · Bảng","thead là hàng tiêu đề, tbody là phần dữ liệu.",String.raw`<table border="1">
+  <thead>
+    <tr><th>Mon</th><th>Diem</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Toan</td><td>9</td></tr>
+    <tr><td>Van</td><td>8</td></tr>
+  </tbody>
+</table>`);
+A("web","HTML · Biểu mẫu","Các ô nhập: text, select, radio, checkbox và nút bấm.",String.raw`<form>
+  <label>Ten: <input type="text" placeholder="Nhap ten"></label><br>
+  <label>Lop: <select><option>10A</option><option>11B</option></select></label><br>
+  <label><input type="radio" name="gt"> Nam</label>
+  <label><input type="radio" name="gt"> Nu</label><br>
+  <label><input type="checkbox"> Dong y</label><br>
+  <button type="button">Gui</button>
+</form>`);
+A("web","HTML · Thẻ ngữ nghĩa","header, nav, main, section, footer giúp trang rõ cấu trúc.",String.raw`<header><h1>Trang web</h1></header>
+<nav><a href="#">Trang chu</a> | <a href="#">Gioi thieu</a></nav>
+<main>
+  <section>
+    <h2>Bai viet</h2>
+    <p>Noi dung bai viet.</p>
+  </section>
+</main>
+<footer>Ban quyen 2026</footer>`);
+A("web","CSS · Selector và màu sắc","Chọn theo thẻ, theo class (.) và theo id (#).",String.raw`<h1 id="tieude">Tieu de</h1>
+<p class="nho">Doan van</p>
+<style>
+  body { font-family: Arial; }
+  #tieude { color: crimson; text-align: center; }
+  .nho { color: gray; font-size: 14px; }
+</style>`);
+A("web","CSS · Box model","Nội dung, padding, border và margin tạo nên hộp.",String.raw`<div class="hop">Hop</div>
+<style>
+  .hop {
+    width: 120px;
+    padding: 16px;
+    border: 3px solid teal;
+    margin: 12px;
+    border-radius: 12px;
+  }
+</style>`);
+A("web","CSS · Responsive media query","Đổi giao diện khi màn hình nhỏ hơn 600px.",String.raw`<div class="cot">Responsive</div>
+<style>
+  .cot { background: lightblue; padding: 16px; }
+  @media (max-width: 600px) {
+    .cot { background: lightgreen; }
+  }
+</style>`);
+A("web","JavaScript · Biến và kiểu dữ liệu","let đổi được, const không đổi.",String.raw`<p id="r"></p>
+<script>
+  let ten = "An";
+  const tuoi = 17;
+  let diem = 8.5;
+  let ok = true;
+  r.textContent = ten + " " + tuoi + " " + diem + " " + ok;
+</@@script>`);
+A("web","JavaScript · Hàm và mảng","Viết hàm tính tổng và tìm max theo kiểu vòng for.",String.raw`<p id="r"></p>
+<script>
+  function TinhTongMang(a) {
+    let tong = 0;
+    for (let i = 0; i < a.length; i++) {
+      tong += a[i];
+    }
+    return tong;
+  }
+  function TimMax(a) {
+    let max = a[0];
+    for (let i = 1; i < a.length; i++) {
+      if (a[i] > max) {
+        max = a[i];
+      }
+    }
+    return max;
+  }
+  const mang = [3, 8, 1, 9];
+  r.textContent = TinhTongMang(mang) + " / " + TimMax(mang);
+</@@script>`);
+A("web","JavaScript · Object và JSON","Object lưu dữ liệu theo cặp khóa và giá trị.",String.raw`<p id="r"></p>
+<script>
+  const sv = { ten: "An", tuoi: 17 };
+  sv.diem = 9;
+  r.textContent = JSON.stringify(sv);
+</@@script>`);
+A("web","JavaScript · setTimeout và Promise","Chạy việc sau một khoảng thời gian, Promise hứa trả kết quả sau.",String.raw`<p id="r">Cho 1 giay...</p>
+<script>
+  const cho = new Promise(function (xong) {
+    setTimeout(function () { xong("Xong!"); }, 1000);
+  });
+  cho.then(function (kq) {
+    r.textContent = kq;
+  });
+</@@script>`);
+A("web","DOM và sự kiện · Click đổi màu","addEventListener lắng nghe sự kiện click.",String.raw`<button id="b">Doi mau</button>
+<script>
+  b.addEventListener("click", function () {
+    document.body.style.background = "lightyellow";
+  });
+</@@script>`);
+A("web","DOM và sự kiện · Kiểm tra form","Lấy giá trị ô nhập và báo lỗi khi bỏ trống.",String.raw`<input id="ten" placeholder="Ten">
+<button id="gui">Gui</button>
+<p id="kq"></p>
+<script>
+  gui.onclick = function () {
+    if (ten.value.trim() === "") {
+      kq.textContent = "Vui long nhap ten";
+    } else {
+      kq.textContent = "Xin chao " + ten.value;
+    }
+  };
+</@@script>`);
+A("web","DOM và sự kiện · Đồng hồ","setInterval chạy lặp mỗi giây.",String.raw`<h2 id="gio"></h2>
+<script>
+  function CapNhat() {
+    gio.textContent = new Date().toLocaleTimeString();
+  }
+  CapNhat();
+  setInterval(CapNhat, 1000);
+</@@script>`);
+/* ===== hình động và hiệu ứng nút ===== */
+var cf=document.createElement('canvas'),cfx=cf.getContext('2d'),cfp=[],cfr=0;
+cf.id='cf';cf.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:250';document.body.appendChild(cf);
+function cfSize(){cf.width=innerWidth;cf.height=innerHeight}cfSize();addEventListener('resize',cfSize);
+function cfLoop(){
+ cfx.clearRect(0,0,cf.width,cf.height);
+ cfp=cfp.filter(function(p){p.vy+=.28;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.rot+=p.vr;p.l++;return p.l<120&&p.y<cf.height+30});
+ cfp.forEach(function(p){cfx.save();cfx.globalAlpha=Math.max(0,1-p.l/120);cfx.translate(p.x,p.y);cfx.rotate(p.rot);cfx.fillStyle=p.c;
+  if(p.sh){cfx.beginPath();cfx.arc(0,0,p.r*.6,0,6.283);cfx.fill()}else cfx.fillRect(-p.r,-p.r/2,p.r*2,p.r);cfx.restore()});
+ cfr=cfp.length?requestAnimationFrame(cfLoop):0;
+}
+function confetti(x,y,n){
+ if(RM)return;var cols=COL.concat(['#ffd23f','#ffffff']);
+ for(var i=0;i<n;i++){var a=-Math.PI/2+(Math.random()-.5)*2.4,sp=6+Math.random()*10;
+  cfp.push({x:x,y:y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,r:4+Math.random()*5,c:cols[i%cols.length],rot:Math.random()*6,vr:(Math.random()-.5)*.4,l:0,sh:i%3===0})}
+ if(!cfr)cfr=requestAnimationFrame(cfLoop);
+}
+function rain(){
+ if(RM)return;for(var i=0;i<26;i++){
+  fxEl('fxp rain',Math.random()*innerWidth,-30,'--dx:'+Math.round(Math.random()*120-60)+'px;--r:'+Math.round(Math.random()*540-270)+'deg;--t:'+(1.8+Math.random()*1.6).toFixed(2)+'s;animation-delay:'+(Math.random()*.7).toFixed(2)+'s',3800).textContent=FXE[i%FXE.length];
+ }
+}
+$('pup').addEventListener('click',function(){rain();confetti(innerWidth-40,innerHeight-60,40)});
+
+document.addEventListener('pointerdown',function(e){
+ if(RM)return;var b=e.target.closest&&e.target.closest('.btn,.chip,nav button,.themes button,.na button');if(!b)return;
+ var r=b.getBoundingClientRect(),d=Math.max(r.width,r.height)*2,s=document.createElement('span');
+ s.className='rpl';s.style.cssText='width:'+d+'px;height:'+d+'px;left:'+(e.clientX-r.left-d/2)+'px;top:'+(e.clientY-r.top-d/2)+'px';
+ b.appendChild(s);setTimeout(function(){s.remove()},700);
+ b.classList.remove('boing');void b.offsetWidth;b.classList.add('boing');setTimeout(function(){b.classList.remove('boing')},470);
+});
+/* ===== đoàn thú đi ngang màn hình ===== */
+var ANI=[['🐕','walk',85],['🐈','walk',75],['🦊','walk',90],['🐧','walk',55],['🦆','walk',70],['🐥','walk',60],['🦔','walk',45],['🐢','walk',28],['🐌','walk',16],['🐞','walk',35],['🐇','hop',110],['🐿️','hop',130],['🐸','hop',80],['🐦','fly',190],['🕊️','fly',160],['🦅','fly',230],['🦋','flut',75],['🐝','flut',110],['🦄','fly',150]];
+var BOB={
+ walk:[[{transform:'translateY(0) rotate(-4deg)'},{transform:'translateY(-7px) rotate(4deg)'}],{duration:360,direction:'alternate',iterations:Infinity,easing:'ease-in-out'}],
+ hop:[[{transform:'translateY(0) scale(1.12,.88)'},{transform:'translateY(-44px) scale(.94,1.1)',offset:.5},{transform:'translateY(0) scale(1.12,.88)'}],{duration:950,iterations:Infinity,easing:'ease-in-out'}],
+ fly:[[{transform:'translateY(0) rotate(-5deg)'},{transform:'translateY(-34px) rotate(4deg)',offset:.25},{transform:'translateY(0) rotate(-3deg)',offset:.5},{transform:'translateY(30px) rotate(5deg)',offset:.75},{transform:'translateY(0) rotate(-5deg)'}],{duration:2600,iterations:Infinity,easing:'ease-in-out'}],
+ flut:[[{transform:'translateY(0) rotate(-14deg)'},{transform:'translateY(-26px) rotate(14deg)',offset:.4},{transform:'translateY(8px) rotate(-8deg)',offset:.7},{transform:'translateY(0) rotate(-14deg)'}],{duration:1300,iterations:Infinity,easing:'ease-in-out'}]
+};
+function spawnAni(a){
+ var W=innerWidth,H=innerHeight,dir=Math.random()<.5?1:-1,sz=28+Math.random()*20,m=a[1],
+ el=document.createElement('div'),f=document.createElement('span'),b=document.createElement('span');
+ el.className='critter';el.setAttribute('aria-hidden','true');el.style.fontSize=sz.toFixed(0)+'px';
+ if(m==='fly'||m==='flut')el.style.top=Math.round(H*(.06+Math.random()*.4))+'px';else el.style.bottom=Math.round(4+Math.random()*60)+'px';
+ f.style.cssText='display:block;transform:scaleX('+(dir>0?-1:1)+')';b.style.display='block';b.textContent=a[0];
+ f.appendChild(b);el.appendChild(f);document.body.appendChild(el);
+ b.animate(BOB[m][0],BOB[m][1]);
+ var x0=dir>0?-120:W+120,x1=dir>0?W+120:-120,dur=(W+240)/(a[2]*(.85+Math.random()*.3))*1000;
+ el.animate([{transform:'translateX('+x0+'px)',opacity:0},{transform:'translateX('+(x0+(x1-x0)*.08)+'px)',opacity:.8,offset:.08},{transform:'translateX('+(x0+(x1-x0)*.92)+'px)',opacity:.8,offset:.92},{transform:'translateX('+x1+'px)',opacity:0}],{duration:dur,easing:'linear'}).onfinish=function(){el.remove()};
+ var fl='scaleX('+(dir>0?-1:1)+')',iv=setInterval(function(){
+  if(!el.isConnected){clearInterval(iv);return}
+  var r=b.getBoundingClientRect(),g=document.createElement('div');
+  g.className='ghost';g.textContent=a[0];g.style.cssText='left:'+r.left.toFixed(0)+'px;top:'+r.top.toFixed(0)+'px;font-size:'+sz.toFixed(0)+'px';
+  document.body.appendChild(g);
+  g.animate([{opacity:.4,transform:fl+' scale(1)'},{opacity:0,transform:fl+' scale(.55)'}],{duration:900,easing:'ease-out'}).onfinish=function(){g.remove()};
+ },(m==='fly'||m==='flut')?110:170);
+}
+function zooLoop(){
+ if(!RM&&!document.hidden&&document.querySelectorAll('.critter').length<5){
+  var a=ANI[Math.floor(Math.random()*ANI.length)],n=Math.random()<.25?2+Math.floor(Math.random()*2):1;
+  for(var i=0;i<n;i++)setTimeout(function(){spawnAni(a)},i*900);
+ }
+ setTimeout(zooLoop,4000+Math.random()*5000);
+}
+setTimeout(function(){if(!RM)spawnAni(ANI[0]);zooLoop()},1500);
+/* ===== độ trong suốt (kính mờ) ===== */
+function setGl(v){var r=document.documentElement.style;r.setProperty('--ga',(34-v*.3).toFixed(1));r.setProperty('--gp',(100-v*.65).toFixed(0));r.setProperty('--bl',(8+v*.16).toFixed(0)+'px')}
+$('gl').value=S.gl==null?50:S.gl;setGl(+$('gl').value);
+$('gl').oninput=function(){setGl(+this.value);S.gl=+this.value;save()};
+/* ===== hiệu ứng trong suốt: bóng bay, bóng ma, vệt mờ ===== */
+ANI.push(['👻','flut',70],['🧚','flut',95],['🪼','fly',60]);
+var bubN=0;
+function bubble(){
+ var W=innerWidth,H=innerHeight,s=18+Math.random()*60,x=Math.random()*(W-s),el=document.createElement('div'),dx=(Math.random()-.5)*120,dur=9000+Math.random()*8000;
+ el.className='bub';el.style.cssText='width:'+s.toFixed(0)+'px;height:'+s.toFixed(0)+'px;left:'+x.toFixed(0)+'px;top:'+(H+10)+'px';
+ document.body.appendChild(el);bubN++;
+ el.animate([
+  {transform:'translate(0,0) scale(.6)',opacity:0},
+  {transform:'translate('+(dx*.3)+'px,'+(-H*.2)+'px) scale(1)',opacity:.75,offset:.12},
+  {transform:'translate('+(-dx*.5)+'px,'+(-H*.55)+'px) scale(1.05)',opacity:.6,offset:.55},
+  {transform:'translate('+dx+'px,'+(-H*.95)+'px) scale(1.1)',opacity:.55,offset:.92},
+  {transform:'translate('+dx+'px,'+(-H-20)+'px) scale(1.5)',opacity:0}
+ ],{duration:dur,easing:'ease-in-out'}).onfinish=function(){el.remove();bubN--};
+}
+function bubLoop(){if(!RM&&!document.hidden&&bubN<14)bubble();setTimeout(bubLoop,900+Math.random()*1400)}
+bubLoop();
+var K={l:'java',i:0,txt:'',st:0,iv:null,done:false,keys:0,mis:0,prev:0};
+function kList(){var l=$('kl').value,G={},GO=['Cú pháp Java','Cú pháp C','HTML','CSS','JavaScript','DOM và sự kiện','Cơ bản','Mảng 1D (trên lớp)','Mảng 1D','Mảng 2D (trên lớp)','Mảng 2D','Sắp xếp','Tìm kiếm','Chuỗi','Đệ quy','Cấu trúc dữ liệu','Đồ thị','Quy hoạch động','OOP (trên lớp)','OOP','Collections','Ngoại lệ','Generics & Lambda','Con trỏ','struct','File I/O','Đa luồng'];
+ CODE[l].forEach(function(a,i){var m=a[0].split(' · '),g=m.length>1?m[0]:/Sort/.test(a[0])?'Sắp xếp':/Search/.test(a[0])?'Tìm kiếm':/Stack|liên kết/.test(a[0])?'Cấu trúc dữ liệu':'Cơ bản';(G[g]=G[g]||[]).push('<option value="'+i+'">'+esc(m.length>1?m[1]:a[0])+'</option>')});
+ $('ka').innerHTML=Object.keys(G).sort(function(x,y){var p=GO.indexOf(x),q=GO.indexOf(y);return (p<0?99:p)-(q<0?99:q)}).map(function(g){return '<optgroup label="'+g+' ('+G[g].length+')">'+G[g].join('')+'</optgroup>'}).join('')}
+function kr(v){
+ var h='';for(var i=0;i<K.txt.length;i++){var c=K.txt[i],cl=i<v.length?(v[i]===c?'ok':'bad'):(i===v.length?'cur':'');
+  if(c==='\n')h+='<span class="'+(cl||'nl')+'">↵</span>\n';else h+='<span class="'+cl+'">'+(c==='<'?'&lt;':c==='&'?'&amp;':(c===' '&&cl==='bad'?'·':c))+'</span>'}
+ $('kx').innerHTML=h;$('kbar').style.width=Math.min(100,v.length/K.txt.length*100)+'%';
+}
+function kst(){
+ var v=$('kti').value,ok=0,n=Math.min(v.length,K.txt.length),i;for(i=0;i<n;i++)if(v[i]===K.txt[i])ok++;
+ var sec=K.st?(Date.now()-K.st)/1000:0,cpm=sec>1?Math.round(ok/(sec/60)):0,acc=K.keys?Math.max(0,Math.round((K.keys-K.mis)/K.keys*100)):100;
+ $('k1').textContent=cpm;$('k2').textContent=acc+'%';$('k3').textContent=S.ks||0;$('k4').textContent=fm(sec);return{cpm:cpm,acc:acc};
+}
+function kLoad(i){
+ var l=$('kl').value;clearInterval(K.iv);K={l:l,i:i,txt:CODE[l][i][2].replace(/@@/g,''),st:0,iv:null,done:false,keys:0,mis:0,prev:0};
+ $('kti').value='';$('kres').style.display='none';$('kd').textContent='💡 '+CODE[l][i][1];$('ka').value=i;kr('');kst();
+ if($('v5').classList.contains('on'))$('kti').focus();
+}
+function kNext(){var n=CODE[$('kl').value].length,i;do{i=Math.floor(Math.random()*n)}while(n>1&&i===K.i);kLoad(i)}
+function kDone(){
+ K.done=true;clearInterval(K.iv);var r=kst();S.ks=(S.ks||0)+1;save();$('k3').textContent=S.ks;
+ var b=$('kbox');b.classList.remove('good');void b.offsetWidth;b.classList.add('good');
+ $('kok').textContent='✔ Hoàn thành '+CODE[K.l][K.i][0]+' · '+r.cpm+' ký tự/phút · '+r.acc+'%';
+ $('kex').textContent=CODE[K.l][K.i][1];
+ var pv=$('kpv');if(K.l==='web'){pv.style.display='block';pv.srcdoc='<!doctype html><meta charset="utf-8"><body style="font:16px sans-serif;padding:12px;color:#111;background:#fff">'+K.txt}else{pv.style.display='none';pv.removeAttribute('srcdoc')}
+ confetti(innerWidth/2,innerHeight*.4,120);$('kres').style.display='block';toast('Giỏi lắm! Bấm Enter để sang bài tiếp 🎉');
+}
+$('kti').oninput=function(){
+ if(K.done)return;var v=this.value.replace(/\r\n?/g,'\n');
+ if(!K.st){K.st=Date.now();K.iv=setInterval(kst,250)}
+ if(v.length>K.prev){
+  var c=v[v.length-1],pos=v.length-1;K.keys++;
+  if(c!==K.txt[pos]){K.mis++;var bx=$('kbox');bx.classList.remove('shake');void bx.offsetWidth;bx.classList.add('shake')}
+  else if(c==='\n'){var m=/^ */.exec(K.txt.slice(v.length))[0];if(m)v+=m}
+ }
+ K.prev=v.length;if(v!==this.value)this.value=v;
+ kr(v);kst();if(v===K.txt)kDone();
+};
+$('kti').onkeydown=function(e){
+ if(K.done){e.preventDefault();if(e.key==='Enter')kNext();else if(e.key==='Escape')kLoad(K.i);return}
+ if(e.key==='Tab')e.preventDefault();
+ if(e.key==='Escape'){e.preventDefault();kLoad(K.i)}
+};
+$('kti').onpaste=function(e){e.preventDefault();toast('Không dán được, hãy tự gõ nhé ✋')};
+$('kbox').onclick=function(){$('kti').focus()};
+$('kl').onchange=function(){kList();kLoad(0)};
+$('ka').onchange=function(){kLoad(+this.value)};
+$('kn').onclick=kNext;$('knx').onclick=kNext;$('kr').onclick=function(){kLoad(K.i)};
+kList();kLoad(0);
+fillSel();all();fp();tNew();
+})();
+</script>
+</body>
+</html>
