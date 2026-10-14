@@ -201,6 +201,13 @@ input,select,textarea{background:color-mix(in srgb,var(--bg) 60%,transparent)}
 @keyframes rays{to{transform:rotate(360deg)}}
 @keyframes rayp{50%{opacity:.3}}
 @media(prefers-reduced-motion:reduce){.ghost,.bub{display:none}.sky::before{animation:none!important}}
+@media(max-width:860px),(pointer:coarse){
+*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+body{background-attachment:scroll}
+.sky::before,.sky::after,.orb,.cloud{display:none}
+.now::before,.logo,.logo span,.pup::after{animation:none}
+.day,.st,.note{transition:none;will-change:auto}
+}
 </style>
 </head>
 <body>
@@ -500,11 +507,11 @@ requestAnimationFrame(draw);
 var FXE=['🐾','✨','⭐','💖','🦴','🌟','💫','🎉'],lt=0;
 function fxEl(c,x,y,css,ms){var el=document.createElement('span');el.className=c;el.style.cssText='left:'+x+'px;top:'+y+'px;'+(css||'');document.body.appendChild(el);setTimeout(function(){el.remove()},ms);return el}
 document.addEventListener('pointerdown',function(e){
- if(RM)return;fxEl('fxf',0,0,'--fx:'+e.clientX+'px;--fy:'+e.clientY+'px',520);[0,110,230].forEach(function(d,k){fxEl('fxr',e.clientX,e.clientY,'animation-delay:'+d+'ms;border-color:'+COL[k*2]+';color:'+COL[k*2],900)});
+ return;fxEl('fxf',0,0,'--fx:'+e.clientX+'px;--fy:'+e.clientY+'px',520);[0,110,230].forEach(function(d,k){fxEl('fxr',e.clientX,e.clientY,'animation-delay:'+d+'ms;border-color:'+COL[k*2]+';color:'+COL[k*2],900)});
  for(var i=0;i<20;i++){var a=Math.random()*6.283,d=60+Math.random()*130;fxEl('fxp',e.clientX,e.clientY,'--dx:'+(Math.cos(a)*d).toFixed(0)+'px;--dy:'+(Math.sin(a)*d).toFixed(0)+'px;--r:'+Math.round(Math.random()*180-90)+'deg;color:'+COL[i%6],1000).textContent=(i%2?FXE[i%FXE.length]:'●')}
 });
 document.addEventListener('pointermove',function(e){
- if(RM||e.pointerType!=='mouse')return;var n=Date.now();if(n-lt<45)return;lt=n;
+ return;var n=Date.now();if(n-lt<45)return;lt=n;
  var c=COL[Math.floor(Math.random()*6)];fxEl('trail',e.clientX,e.clientY,'background:'+c+';box-shadow:0 0 10px '+c,620);
 });
 /* ===== luyện code ===== */
@@ -2455,7 +2462,7 @@ function rain(){
   fxEl('fxp rain',Math.random()*innerWidth,-30,'--dx:'+Math.round(Math.random()*120-60)+'px;--r:'+Math.round(Math.random()*540-270)+'deg;--t:'+(1.8+Math.random()*1.6).toFixed(2)+'s;animation-delay:'+(Math.random()*.7).toFixed(2)+'s',3800).textContent=FXE[i%FXE.length];
  }
 }
-$('pup').addEventListener('click',function(){rain();confetti(innerWidth-40,innerHeight-60,40)});
+
 
 document.addEventListener('pointerdown',function(e){
  if(RM)return;var b=e.target.closest&&e.target.closest('.btn,.chip,nav button,.themes button,.na button');if(!b)return;
@@ -2497,7 +2504,7 @@ function zooLoop(){
  }
  setTimeout(zooLoop,4000+Math.random()*5000);
 }
-setTimeout(function(){if(!RM)spawnAni(ANI[0]);zooLoop()},1500);
+
 /* ===== độ trong suốt (kính mờ) ===== */
 function setGl(v){var r=document.documentElement.style;r.setProperty('--ga',(34-v*.3).toFixed(1));r.setProperty('--gp',(100-v*.65).toFixed(0));r.setProperty('--bl',(8+v*.16).toFixed(0)+'px')}
 $('gl').value=S.gl==null?50:S.gl;setGl(+$('gl').value);
@@ -2518,7 +2525,6 @@ function bubble(){
  ],{duration:dur,easing:'ease-in-out'}).onfinish=function(){el.remove();bubN--};
 }
 function bubLoop(){if(!RM&&!document.hidden&&bubN<14)bubble();setTimeout(bubLoop,900+Math.random()*1400)}
-bubLoop();
 var K={l:'java',i:0,txt:'',st:0,iv:null,done:false,keys:0,mis:0,prev:0};
 function kList(){var l=$('kl').value,G={},GO=['Cú pháp Java','Cú pháp C','HTML','CSS','JavaScript','DOM và sự kiện','Cơ bản','Mảng 1D (trên lớp)','Mảng 1D','Mảng 2D (trên lớp)','Mảng 2D','Sắp xếp','Tìm kiếm','Chuỗi','Đệ quy','Cấu trúc dữ liệu','Đồ thị','Quy hoạch động','OOP (trên lớp)','OOP','Collections','Ngoại lệ','Generics & Lambda','Con trỏ','struct','File I/O','Đa luồng'];
  CODE[l].forEach(function(a,i){var m=a[0].split(' · '),g=m.length>1?m[0]:/Sort/.test(a[0])?'Sắp xếp':/Search/.test(a[0])?'Tìm kiếm':/Stack|liên kết/.test(a[0])?'Cấu trúc dữ liệu':'Cơ bản';(G[g]=G[g]||[]).push('<option value="'+i+'">'+esc(m.length>1?m[1]:a[0])+'</option>')});
