@@ -217,7 +217,7 @@ body{background-attachment:scroll}
  <header>
   <h1 class="logo f" data-t="Thời khóa biểu Cún Con 🐶">Thời khóa biểu <span>Cún Con</span> 🐶</h1>
   <div class="themes" id="themes" role="group" aria-label="Chọn giao diện"><button data-t="night" aria-pressed="true" aria-label="Đêm lo-fi" title="Đêm lo-fi">🌙</button><button data-t="sunset" aria-pressed="false" aria-label="Hoàng hôn" title="Hoàng hôn">🌇</button><button data-t="forest" aria-pressed="false" aria-label="Rừng xanh" title="Rừng xanh">🌲</button><button data-t="day" aria-pressed="false" aria-label="Bầu trời ban ngày" title="Bầu trời ban ngày">☀️</button></div>
-  <label class="glw" title="Độ trong suốt">🪟<input type="range" id="gl" min="0" max="100" value="50" aria-label="Độ trong suốt"></label><div class="clock f" aria-live="off"><span id="clk">00:00:00</span><small id="dt"></small></div>
+  <label class="glw" title="Độ trong suốt">🪟<input type="range" id="gl" min="0" max="100" value="50" aria-label="Độ trong suốt"></label><button class="btn g" id="cloud" type="button">☁ Đăng nhập để đồng bộ</button><div class="clock f" aria-live="off"><span id="clk">00:00:00</span><small id="dt"></small></div>
  </header>
  <nav role="tablist">
   <button role="tab" aria-selected="true" data-v="v1">▦ Thời khóa biểu</button>
@@ -299,6 +299,9 @@ body{background-attachment:scroll}
 <button class="pup" id="pup" aria-label="Cún con">🐶</button>
 <div class="toast" id="toast" role="status"></div>
 
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>
 (function(){
 var DAYS=['Thứ 2','Thứ 3','Thứ 4','Thứ 5','Thứ 6','Thứ 7','Chủ nhật'],COL=['#8be9c8','#8ecbff','#ff9ec7','#ffd98e','#b9a5ff','#ffae8a'],KEY='studydeck-v1';
@@ -314,7 +317,7 @@ function seed(){
  S.notes=[{id:uid(),subj:'Toán',title:'Mẹo học bài',body:'Làm lại 3 bài khó nhất mỗi ngày.\nGhi công thức ra giấy nháp trước khi ngủ.',done:false,pin:true}];
 }
 try{var r=localStorage.getItem(KEY);if(r){S=Object.assign(S,JSON.parse(r))}else seed()}catch(e){seed()}
-function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}if(typeof cpush==='function')cpush()}
 function sc(name){for(var i=0;i<S.classes.length;i++)if(S.classes[i].s===name)return COL[S.classes[i].c%6];return '#8b97b8'}
 function subjects(){var u=[];S.classes.forEach(function(c){if(u.indexOf(c.s)<0)u.push(c.s)});return u}
 function today(){return (new Date().getDay()+6)%7}
@@ -2575,6 +2578,53 @@ $('kl').onchange=function(){kList();kLoad(0)};
 $('ka').onchange=function(){kLoad(+this.value)};
 $('kn').onclick=kNext;$('knx').onclick=kNext;$('kr').onclick=function(){kLoad(K.i)};
 kList();kLoad(0);
+/* ===== đồng bộ đám mây (Firebase) ===== */
+/* >>> DÁN firebaseConfig CỦA BẠN VÀO KHỐI DƯỚI ĐÂY (thay từ const đến };) <<< */
+const firebaseConfig = {
+  apiKey: "AIzaSyDkrael8nXe9cQ5LKLqSR0vAHJehWRQyVU",
+  authDomain: "huaminhduytkb.firebaseapp.com",
+  projectId: "huaminhduytkb",
+  storageBucket: "huaminhduytkb.firebasestorage.app",
+  messagingSenderId: "394833399782",
+  appId: "1:394833399782:web:3268301223f90d01169027",
+  measurementId: "G-2FW0SB9K8G"
+};
+/* >>> HẾT KHỐI CẤU HÌNH <<< */
+var CU=null,cdb=null,cauth=null,cunsub=null,ctm=null,clast=0,cbtn=$('cloud');
+function cset(t){cbtn.textContent=t}
+function cname(){return CU&&(CU.displayName||CU.email)||'Bạn'}
+function cpush(){
+ if(!CU||!cdb)return;clearTimeout(ctm);
+ ctm=setTimeout(function(){
+  clast=Date.now();
+  var d=JSON.parse(JSON.stringify({classes:S.classes,notes:S.notes,best:S.best||null,hist:S.hist||[],ks:S.ks||0,t:clast}));
+  cdb.collection('users').doc(CU.uid).set(d).then(function(){cset('☁ Đã đồng bộ ✔ · '+cname())}).catch(function(e){cset('☁ Lỗi đồng bộ');toast('Lỗi lưu lên mạng: '+(e.code||e.message))});
+ },500);
+}
+function capply(d){
+ S.classes=d.classes||[];S.notes=d.notes||[];S.best=d.best||undefined;S.hist=d.hist||[];S.ks=d.ks||0;
+ try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
+ all();fillSel();rH();kst();
+}
+function cstart(u){
+ CU=u;cset('☁ Đang đồng bộ…');
+ cunsub=cdb.collection('users').doc(u.uid).onSnapshot(function(snap){
+  if(snap.metadata.hasPendingWrites)return;
+  if(snap.exists){var d=snap.data();if(d.t&&d.t===clast){cset('☁ Đã đồng bộ ✔ · '+cname());return}capply(d);cset('☁ Đã đồng bộ ✔ · '+cname())}
+  else cpush();
+ },function(e){cset('☁ Lỗi đồng bộ');toast('Lỗi đọc dữ liệu: '+(e.code||e.message))});
+}
+cbtn.onclick=function(){
+ if(!cauth){toast('Chưa tải được Firebase, kiểm tra mạng rồi tải lại trang');return}
+ if(CU){if(confirm('Đăng xuất khỏi đồng bộ? Dữ liệu vẫn còn trên máy này.'))cauth.signOut();return}
+ cauth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(function(e){toast('Đăng nhập lỗi: '+(e.code||e.message))});
+};
+try{
+ if(window.firebase&&firebaseConfig.apiKey.indexOf('DÁN')!==0){
+  firebase.initializeApp(firebaseConfig);cauth=firebase.auth();cdb=firebase.firestore();
+  cauth.onAuthStateChanged(function(u){if(cunsub){cunsub();cunsub=null}if(u)cstart(u);else{CU=null;cset('☁ Đăng nhập để đồng bộ')}});
+ }else cset(window.firebase?'☁ Chưa dán apiKey':'☁ Không tải được Firebase');
+}catch(e){cset('☁ Lỗi Firebase')}
 fillSel();all();fp();tNew();
 })();
 </script>
